@@ -1,4 +1,4 @@
-// Read in a list of words from file -> Merge Sort
+// Read a list of words from file 
 
 const fs = require('fs');
 

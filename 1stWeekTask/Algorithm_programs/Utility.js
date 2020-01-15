@@ -37,19 +37,20 @@ module.exports = {
   
     palindrome(num){
 
-            let array = num.reverse();
-            let i=0,j=array.length -1;
+            let rem, temp, final = 0;
+            temp = num;
 
-            while(i < j){
-                if(array[i]<array[j]){
-                    return false;
-                }else{
-                    i++;
-                    j--;
-                }
+            while(num>0){
+                rem = num % 10;
+                final = final * 10 + rem;
+                console.log(final);
+                num = num / 10;
             }
-            return true;
-        
+            if(final === temp){
+                return true;
+            }else{
+                return false;
+            }
         },
 
 /*************************************************************************************/ 
@@ -193,9 +194,45 @@ module.exports = {
 /*******************************************************************************************/ 
 
 // Merge Sort
+    merge(leftArr,rightArr){
 
-    mergeSort(){
+    let sortedArr = []; 
+
+        while(leftArr.length && rightArr.length){
+            if(leftArr[0]<=rightArr[0]){
+                sortedArr.push(leftArr[0]);
+                leftArr = leftArr.slice(1);
+            }
+            else{
+                sortedArr.push(rightArr[0]);
+                rightArr = rightArr.slice(1);
+            }
+        }
+
+        while(leftArr.length){
+            sortedArr.push(leftArr.shift());
+        }
+        while(rightArr.length){
+            sortedArr.push(rightArr.shift());
+        }
+        return sortedArr;
+    
+    },
+    
+    mergeSort(arr){
         
+        if(arr.length < 2){
+            return arr;
+        }
+        else{
+            var midpoint = parseInt(arr.length);
+
+            var leftArr = arr.slice(0,midpoint);
+
+            var rightArr = arr.slice(midpoint,arr.length);
+
+            return merge(this.mergeSort(leftArr),mergeSort(rightArr));
+        }
     }
 
 }

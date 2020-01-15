@@ -3,8 +3,6 @@
 let arr = ['hello','world','test','todolist'];
 const input = require("./Utility");
 
-let merge = (leftArr,rightArr) =>{
-    
-}
+let sortedArray = input.mergeSort(arr);
 
 

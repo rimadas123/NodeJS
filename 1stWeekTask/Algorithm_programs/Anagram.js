@@ -1,6 +1,6 @@
 
 var read = require('readline-sync');
-var input = require('./Utility')
+var input = require('./Utility');
 
 word1 = read.question("Enter any word: ");
 word2 = read.question("Enter any word: ");
