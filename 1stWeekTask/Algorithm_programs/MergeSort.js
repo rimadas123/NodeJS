@@ -1,6 +1,7 @@
 //Read in a list of words from file -> Merge Sort
 
-var arr = ['hello','world','test','todolist'];
+let arr = ['hello','world','test','todolist'];
+const input = require("./Utility");
 
 let merge = (leftArr,rightArr) =>{
     

@@ -1,8 +1,8 @@
 // get input from the user
 
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
 
-var a = readlineSync.question("Enter your name ");
+const a = readlineSync.question("Enter your name ");
 
 if(a.length >= 3)
 {

@@ -1,5 +1,5 @@
 
-var read = require('readline-sync');
+const read = require('readline-sync');
 
 module.exports = {
 
@@ -12,45 +12,43 @@ module.exports = {
             return false;
         }
     
-        var lowerCaseWord1 = word1.toLowerCase();
-        var lowerCaseWord2 = word2.toLowerCase();
+        let lowerCaseWord1 = word1.toLowerCase();
+        let lowerCaseWord2 = word2.toLowerCase();
     
         if(lowerCaseWord1===lowerCaseWord2){
             return false;
         }
-            var resWord1 = lowerCaseWord1.split('').sort().join('');
+            let resWord1 = lowerCaseWord1.split('').sort().join('');
         
-            var resWord2 = lowerCaseWord2.split('').sort().join('');
+            let resWord2 = lowerCaseWord2.split('').sort().join('');
             
             
             if(resWord1===resWord2){
-                console.log("It is an anagram");
+                return true;
             }      
             else{
-                console.log("It is not an anagram");
+                
+                return false;
             }
     } ,
 /*************************************************************************************************************/
 
-    //Palindrome Program -> to check whether it is paliondrome or not 
+    //Palindrome Program -> to check whether it is palindrome or not 
   
     palindrome(num){
 
-            num = read.question("Enter a number: ");
-            let temp, rem, rev = 0;
-        
-            temp = num;
-        
-            for(;num!=0;num=num/10){
-                rem = num %10;
-                rev = rev * 10 + rem;
+            let array = num.reverse();
+            let i=0,j=array.length -1;
+
+            while(i < j){
+                if(array[i]<array[j]){
+                    return false;
+                }else{
+                    i++;
+                    j--;
+                }
             }
-        
-            if(temp===rev){
-                console.log("it is a palindrome");
-            }else{
-                console.log("it is not a palindrome");
-            }
+            return true;
         
         },
 
@@ -89,7 +87,7 @@ module.exports = {
             let j = i - 1;
             while(j > 0 && arr[j] > temp){
                 arr[j+1] = arr[j];
-                j = j -1;
+                j = j - 1;
             }
             arr[j+1] = temp;
         }
@@ -151,9 +149,11 @@ module.exports = {
 //Binary Search
 
     binarySearch(items,values){
-        var startIndex = 0;
-        var stopIndex = startIndex.length - 1;
-        var middle = Math.floor((stopIndex-startIndex)/2);
+        
+        let startIndex = 0;
+        let stopIndex = items.length - 1;
+        let middle = Math.floor((startIndex+stopIndex)/2);
+        
 
         while(items[middle] != values && startIndex < stopIndex){
 
