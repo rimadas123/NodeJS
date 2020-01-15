@@ -2,6 +2,8 @@
 
 var arr = ['hello','world','test','todolist'];
 
+let merge = (leftArr,rightArr) =>{
+    
+}
 
 
-// console.log(read);
