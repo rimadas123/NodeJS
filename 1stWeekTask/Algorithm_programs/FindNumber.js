@@ -1,4 +1,4 @@
-//Guess a number from user. Use binary search for this
+//Guess a number from user using binary search
 
 const read = require("readline-sync");
 
