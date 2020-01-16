@@ -37,7 +37,7 @@ module.exports = {
   
     palindrome(num){
 
-            let array = num.reverse();
+            let array = num;
             let i=0,j=array.length -1;
 
             while(i < j){
@@ -193,10 +193,54 @@ module.exports = {
 /*******************************************************************************************/ 
 
 // Merge Sort
+    
+    
+    merge(leftArr,rightArr){
 
-    mergeSort(){
+        let sortedArr = []; 
+
+            while(leftArr.length && rightArr.length){
+                if(leftArr[0]<=rightArr[0]){
+                    sortedArr.push(leftArr[0]);
+                    leftArr = leftArr.slice(1);
+                }
+                else{
+                    sortedArr.push(rightArr[0]);
+                    rightArr = rightArr.slice(1);
+                }
+            }
+
+            while(leftArr.length){
+                sortedArr.push(leftArr.shift());
+            }
+            while(rightArr.length){
+                sortedArr.push(rightArr.shift());
+            }
+            return sortedArr;
+            },
+
+        /******************************************************************************************/
         
+        //2Dimensional Array
+        twoDimensional(rows,cols){
+            let initialize_array = [];
+
+            for(let i=0; i<rows; i++){
+                initialize_array[i] = [];
+
+                for(let j=0; j<cols; j++){
+                    let input = read.question("Enter values: ");
+                    initialize_array[i][j] = input;
+                }
+            }
+
+            for(i=0;i<rows;i++){
+                console.log("2D array:" , initialize_array[i].join(" "));
+            }
+
+        },
+        
+
     }
 
-}
 
