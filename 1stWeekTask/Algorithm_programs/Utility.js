@@ -7,7 +7,10 @@ module.exports = {
     // rearrangement of the first.)
 
     anagram(word1,word2){
-
+  try{
+      if(word1 === undefined || word2 === undefined) throw "value cannot be undefined"
+      if(word1 === "" || word2 === "") throw "value cannot be empty"
+      
         if(word1.length !== word2.length){
             return false;
         }
@@ -27,9 +30,11 @@ module.exports = {
                 return true;
             }      
             else{
-                
                 return false;
             }
+        }catch(err){
+            return err
+        }
     } ,
 /*************************************************************************************************************/
 
@@ -37,26 +42,30 @@ module.exports = {
   
     palindrome(num){
 
-            let array = num;
-            let i=0,j=array.length -1;
+        let rem, temp, final = 0;
+        temp = num;
 
-            while(i < j){
-                if(array[i]<array[j]){
-                    return false;
-                }else{
-                    i++;
-                    j--;
-                }
+            while(num>0){
+                rem = num % 10;
+                final = final * 10 + rem;
+                console.log(final);
+                num = num / 10;
             }
-            return true;
-        
+            if(final === temp){
+                return true;
+            }else{
+                return false;
+            }
         },
 
-/*************************************************************************************/ 
+/************************************************************************************************************/ 
         
     //Bubble sort
 
     bubbleSort(arr){
+        try{
+        if(arr>10) throw "size should not exceed more than 10"
+        if(arr === " ") throw "value cannot be undefined"
         origArr = arr.slice();
             var len = arr.length - 1;
             do{
@@ -73,6 +82,9 @@ module.exports = {
             }
         while(swapped===true);
             return origArr;
+        }catch(err){
+            return err
+        } 
     },
 
 /************************************************************************************************/
@@ -193,8 +205,7 @@ module.exports = {
 /*******************************************************************************************/ 
 
 // Merge Sort
-    
-    
+      
     merge(leftArr,rightArr){
 
         let sortedArr = []; 
