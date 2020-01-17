@@ -14,7 +14,7 @@ str.sort();
 
 let searchedStr = input.binarySearch(str,searchWord);
 
-if(searchedStr==-1){
+if(searchedStr == -1){
     console.log("Element is not present");
 }
 else{

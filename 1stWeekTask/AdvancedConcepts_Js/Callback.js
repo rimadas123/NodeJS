@@ -16,7 +16,7 @@ function first(callback){
     setTimeout(function(){
         console.log("first")  
     },1000);
-    callback();
+    callback("rima");
 }
 
 function second(){

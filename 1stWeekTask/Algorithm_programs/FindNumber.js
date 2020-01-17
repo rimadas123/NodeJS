@@ -8,24 +8,25 @@ let first = 0;
 let last = N - 1;
 
 
-while(first<last){
+while(first<=last){
 
-    if(last - first != 1){
-        break;
+    if(last - first == 1){
+        return first;
     }
-    
-    let middle = Math.floor(first+last)/2;
-    let y,n;
-    let ask = read.question("Is your number "+middle+" greater or less than the number you guessed? y or n");
 
-    console.log(ask);
-    if(ask == y){
+    let middle = Math.floor((first+last)/2);
+
+    let ask = read.question("Is the number "+middle+" greater or less than the number you guessed? Enter 1 for yes \n or enter 2 for no => ");
+
+    if(ask == 1){
         last = middle;
+        console.log(last);
     }
-    else if(ask == n){
+    else if(ask == 2){
         first = middle;
+        console.log(first);
     }
     console.log(`the numbers are ${first} and ${last}`);
 }
 
-console.log(`the number you guessed was ${last} `);
+console.log(`the number you guessed was ${first}`);

@@ -194,46 +194,45 @@ module.exports = {
 /*******************************************************************************************/ 
 
 // Merge Sort
-    merge(leftArr,rightArr){
 
-    let sortedArr = []; 
+    //Split the array into two halves and merge them recursively
 
-        while(leftArr.length && rightArr.length){
-            if(leftArr[0]<=rightArr[0]){
-                sortedArr.push(leftArr[0]);
-                leftArr = leftArr.slice(1);
-            }
-            else{
-                sortedArr.push(rightArr[0]);
-                rightArr = rightArr.slice(1);
-            }
-        }
-
-        while(leftArr.length){
-            sortedArr.push(leftArr.shift());
-        }
-        while(rightArr.length){
-            sortedArr.push(rightArr.shift());
-        }
-        return sortedArr;
-    
-    },
-    
-    mergeSort(arr){
-        
-        if(arr.length < 2){
+    mergeSort(arr) {
+        if(arr.length === 1){
+            //return once we hit an arra with a single item
             return arr;
         }
-        else{
-            var midpoint = parseInt(arr.length);
 
-            var leftArr = arr.slice(0,midpoint);
+        const middle = Math.floor(arr.length / 2);
+        const left = arr.slice(0,middle);
+        const right = arr.slice(middle);
 
-            var rightArr = arr.slice(midpoint,arr.length);
+        return merge(
+            mergeSort(left),
+            mergeSort(right)
+        )
+    },
 
-            return merge(this.mergeSort(leftArr),mergeSort(rightArr));
+    merge(leftArr,rightArr){
+
+    let result = [];
+    let indexLeft = 0;
+    let indexRight = 0;
+
+        while(indexLeft < left.length && indexRight < rightArr.length){
+            if(leftArr[indexLeft] < rightArr[indexRight]){
+                result.push(left[indexLeft])
+                indexLeft++
+            }
+            else{
+                result.push(right[indexRight])
+                indexRight++
+            }
         }
-    }
 
+      return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));  
+
+    },
+    
 }
 
