@@ -13,14 +13,15 @@
 
 
 function first(callback){
+    console.log("first");
     setTimeout(function(){
-        console.log("first")  
+          callback("rima");
     },1000);
     callback("rima");
 }
 
-function second(){
-    console.log("second");
+function second(hhhh){
+    console.log("second",hhhh);
 }
 
 first(second);

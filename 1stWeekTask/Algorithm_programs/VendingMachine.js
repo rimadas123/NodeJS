@@ -1,4 +1,4 @@
-// Find the Fewest Notes to be returned for Vending Machine
+// Find the Minimum notes needed to give the change
 
 const read = require('readline-sync');
 
@@ -10,10 +10,11 @@ let arr = [1000,500,100,50,10,5,2,1];
 let flag = 0;
 
 for(i=0;i<arr.length;i++){
-    if(input/arr[i]!=0){
-        let notes =Math.floor(input / arr[i]);   
-        flag = flag + notes;
-        input = input % arr[i];
+    if(input/arr[i]!=0)
+        {
+            let notes = Math.floor(input / arr[i]);   
+            flag = flag + notes;
+            input = input % arr[i];
         }
     }
 

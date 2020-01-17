@@ -1,6 +1,6 @@
 // Gambling game
 
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
 
 var stake = readlineSync.questionInt("How much money u want to spend? ");
 var trials  = readlineSync.questionInt("how much trials u want to play the game? ");
@@ -9,7 +9,7 @@ var goal = readlineSync.questionInt("set a goal - ");
 var i,wins=0,loss=0;
 var bets=0,total;
 
-for(i=0;i<trials;i++){
+for(let i=0;i<trials;i++){
 
     var cash = stake;
     while(cash > 0 && cash < goal)
