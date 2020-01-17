@@ -65,7 +65,7 @@ module.exports = {
     bubbleSort(arr){
         try{
         if(arr>10) throw "size should not exceed more than 10"
-        if(arr === " ") throw "value cannot be undefined"
+        if(arr === " ") throw "value cannot be empty"
         origArr = arr.slice();
             var len = arr.length - 1;
             do{
@@ -92,18 +92,22 @@ module.exports = {
     //Insertion sort
 
     insertionSort(arr){
-        len = arr.length - 1;
+        try{
+            len = arr.length - 1;
 
-        for(i=0;i<len;i++){
-            let temp = arr[i];
-            let j = i - 1;
-            while(j > 0 && arr[j] > temp){
-                arr[j+1] = arr[j];
-                j = j - 1;
+            for(i=1;i<len;i++){
+                let temp = arr[i];
+                let j = i - 1;
+                while(j >= 0 && arr[j] > temp){
+                    arr[j+1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j+1] = temp;
             }
-            arr[j+1] = temp;
+            return arr;
+        }catch(err){
+            return err;
         }
-        return arr;
     },
 
 /*************************************************************************************/
@@ -131,7 +135,7 @@ module.exports = {
         if(temp==1){
         var temp1 = read.question("enter tempertaure in celsius: ");
         var celsToFaren = (temp1 * 9/5) + 32;
-        console.log("Cpnverted temperature in Farenheit: "+celsToFaren+"°F");
+        console.log("Converted temperature in Farenheit: "+celsToFaren+"°F");
         }
         else if(temp==2){
         var temp2 = read.question("Enter temperature in farenheit: ");
@@ -230,7 +234,7 @@ module.exports = {
             return sortedArr;
             },
 
-        /******************************************************************************************/
+/******************************************************************************************/
         
         //2Dimensional Array
         twoDimensional(rows,cols){
@@ -250,8 +254,27 @@ module.exports = {
             }
 
         },
-        
 
+/******************************************************************************************/
+
+//Print harmonic numbers
+
+    harmonicNumber(n){
+        try{
+            if(n!=0){
+                let i;
+                let total=0;
+                for(i=1; i<=n;i++){ 
+                    total = total+1/i;  
+                } 
+                console.log(total);
+            }
+            else{
+                console.log("please enter greater than '0' number");
+            }
+        }catch(err){
+            return err;
+        }
     }
 
-
+}

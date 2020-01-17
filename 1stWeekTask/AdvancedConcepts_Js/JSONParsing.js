@@ -5,6 +5,8 @@
 async function parseJSONFunc(jsonString){
     const obj = await JSON.parse(jsonString);
     console.log(obj.degree);
+    const obj1 = await JSON.parse(jsonString);
+    console.log(obj1.name);
 }
 
 let data = '{ "name":"rima", "city":"pune", "degree":"MCA"}';

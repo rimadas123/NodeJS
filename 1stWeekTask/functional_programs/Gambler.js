@@ -2,36 +2,50 @@
 
 const readlineSync = require('readline-sync');
 
-var stake = Number(readlineSync.question("How much money u want to spend? "));
-var trials  = Number(readlineSync.question("how much trials u want to play the game? "));
-let goal = Number(readlineSync.question("set a goal - "));
+let stake = readlineSync.questionInt("How much money u want to spend? ");
+let trials  = readlineSync.questionInt("how much trials u want to play the game? ");
+let goal = readlineSync.questionInt("set a goal - ");
 
-let i,wins=0;
-let bets=0,total;
-let cash = stake;
+
+var wins=0;
+let bets=0,loss=0,total;
+var cash = stake;
 console.log("cash",cash,"   trial",trials,"   ",  'goal ',goal);
 
-for(i=0;i<trials;i++){
+for(let i=0;i<trials;i++){
 
-    while(cash>0 && cash<goal)
+    while(cash > 0 && cash < goal)
     {
 
         bets++;
-        let ans = Math.floor(Math.random()*10)%2;
-        if(ans==1)
+        // console.log("random number",ans);
+        if(Math.random()<0.5)
         {
-            cash++;
-            wins++;
+            console.log("cash incremented",cash);
+            cash++;      
         }
         else{
+            console.log("cash decremented",cash);
             cash--;
         }
     }
+    if(cash == goal){
+        wins = wins + 1;
+        console.log("no. of wins:", wins);
+    }
+    else{
+        loss = loss + 1;
+    }
 }
 
-console.log("total number of wins: "+ wins);
-total = wins * 100 /bets;
-console.log("Percentage of winning gambling: "+total+"%");
+console.log("total number of wins: ", wins);
+console.log("total number of loss: ", loss);
+total = Math.floor((wins * 100 )/trials);
+console.log("Percentage of winning gambling: ",total,"%");
+
+let fails = 100 - total;
+console.log("Percentage of fails: ", fails);
+
 
 
 
