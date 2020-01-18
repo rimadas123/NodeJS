@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const app = require('../2D_Array');
 const utility = require('../../Algorithm_programs/Utility')
-describe('Array',function(){
+describe('Anagram',function(){
     it('should not return undefined value', function(){
         let result = utility.anagram(undefined, undefined);
         assert.equal(result,'value cannot be undefined')

@@ -1,21 +1,38 @@
 //Find prime Number from a rang 0 - 1000
 
-var input = require('./Utility');
+const input = require('./Utility');
 
-var range = 1000;
+const range = 1000;
+const arr = [];
+const arr1 = [];
+const arr2 = [];
 
-for(i=0;i<range;i++){
+for(let i=0;i<range;i++){
     var resultPrime = input.primeNumber(i);
     if(resultPrime){
-        console.log(`Prime Numbers=> ${i}`);
+        arr.push(i); 
     }
 }
-    // let resultAnagram = input.anagram(resultPrime);
-    // console.log(`Anagram Numbers: ${resultAnagram}`);
-    let resultPalindrome = input.palindrome(resultPrime);
 
-    if(resultPalindrome){
-    console.log(`Palindrome Numbers=> ${resultPalindrome}`);
-    
-}
+    console.log(`Prime Numbers: ${arr}`);
+
+    for(let i=0;i<arr.length;i++){
+        let resultPalindrome = input.palindrome(arr[i]);
+        if(resultPalindrome){
+            arr1.push(arr[i]);
+        }  
+    }
+    console.log(`Palindrome Numbers: ${arr1}`);
+
+
+    let resultAnagram = input.anagramNum(arr1);
+
+    // for(let i=0;i<arr1.length;i++){
+    //         let resultAnagram = input.anagramNum(arr1[i]);
+    //         if(resultPalindrome){
+    //             console.log("Palindrome result=> ",arr1[i]);
+    //             arr2.push(arr1[i]);
+    //         }  
+    //     }
+    // console.log(`Anagram Numbers: ${arr2}`);
 

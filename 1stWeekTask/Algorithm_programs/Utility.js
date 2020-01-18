@@ -7,53 +7,71 @@ module.exports = {
     // rearrangement of the first.)
 
     anagram(word1,word2){
-  try{
-      if(word1 === undefined || word2 === undefined) throw "value cannot be undefined"
-      if(word1 === "" || word2 === "") throw "value cannot be empty"
-      
-        if(word1.length !== word2.length){
-            return false;
-        }
-    
-        let lowerCaseWord1 = word1.toLowerCase();
-        let lowerCaseWord2 = word2.toLowerCase();
-    
-        if(lowerCaseWord1===lowerCaseWord2){
-            return false;
-        }
-            let resWord1 = lowerCaseWord1.split('').sort().join('');
-        
-            let resWord2 = lowerCaseWord2.split('').sort().join('');
-            
-            
-            if(resWord1===resWord2){
-                return true;
-            }      
-            else{
-                return false;
+            try{
+                if(word1 === undefined || word2 === undefined) throw "value cannot be undefined"
+                if(word1 === "" || word2 === "") throw "value cannot be empty"
+                
+                    if(word1.length !== word2.length){
+                        return false;
+                    }
+                
+                    let lowerCaseWord1 = word1.toLowerCase();
+                    let lowerCaseWord2 = word2.toLowerCase();
+                
+                    if(lowerCaseWord1===lowerCaseWord2){
+                        return false;
+                    }
+
+                    let resWord1 = lowerCaseWord1.split('').sort().join('');
+                
+                    let resWord2 = lowerCaseWord2.split('').sort().join('');
+                        
+                        
+                    if(resWord1===resWord2){
+                        return true;
+                    }      
+                    else{
+                        return false;
+                    }
+            }catch(err){
+                return err
             }
-        }catch(err){
-            return err
-        }
     } ,
+
+/*************************************************************************************************************/
+
+    // To check anagram number
+
+    anagramNum(arr){
+
+       for(let i=0;i<arr.length;i++){
+            for(let j=i+1;j<arr.length;j++){
+
+            }
+       }
+
+    },
+
+
 /*************************************************************************************************************/
 
     //Palindrome Program -> to check whether it is palindrome or not 
   
     palindrome(num){
-
+        
         let rem, temp, final = 0;
         temp = num;
 
             while(num>0){
                 rem = num % 10;
-                final = final * 10 + rem;
-                console.log(final);
-                num = num / 10;
-            }
+                num = parseInt (num / 10);
+                final = final * 10 + rem;                
+            }            
             if(final === temp){
-                return true;
+
+                return true;    
             }else{
+
                 return false;
             }
         },
@@ -213,19 +231,24 @@ module.exports = {
     //Split the array into two halves and merge them recursively
 
     mergeSort(arr) {
+        try{
         if(arr.length === 1){
-            //return once we hit an arra with a single item
+            //return once we hit an array with a single item
             return arr;
         }
 
-        const middle = Math.floor(arr.length / 2);
-        const left = arr.slice(0,middle);
-        const right = arr.slice(middle);
+        var middle = Math.floor(arr.length / 2);
+        var left = arr.slice(0,middle);
+        var right = arr.slice(middle);
 
-        return merge(
-            mergeSort(left),
-            mergeSort(right)
+        
+        return this.merge(
+            this.mergeSort(left),
+            this.mergeSort(right)
         )
+        }catch(err){
+            return err;
+        }
     },
 
     merge(leftArr,rightArr){
@@ -234,18 +257,18 @@ module.exports = {
     let indexLeft = 0;
     let indexRight = 0;
 
-        while(indexLeft < left.length && indexRight < rightArr.length){
+        while(indexLeft < leftArr.length && indexRight < rightArr.length){
             if(leftArr[indexLeft] < rightArr[indexRight]){
-                result.push(left[indexLeft])
+                result.push(leftArr[indexLeft])
                 indexLeft++
             }
             else{
-                result.push(right[indexRight])
+                result.push(rightArr[indexRight])
                 indexRight++
             }
         }
 
-      return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));  
+      return result.concat(leftArr.slice(indexLeft)).concat(rightArr.slice(indexRight));  
 
     },
     
@@ -275,5 +298,37 @@ module.exports = {
         } catch (error) {
             console.log(" error");
         }
+    },
+
+    /******************************************************************************************/
+    
+    //two dimensional array
+
+    twoDimensional(rows,cols){
+        try{
+            // this will initialize 1D array
+            let initialize_array = [];
+
+            // this will initialize 2D array
+            for(let i=0;i<rows;i++){
+                initialize_array[i] = [];
+
+                // for putting the values according to the 2D array
+                for(let j=0;j<cols;j++){
+
+                    // taking input from the user 
+                    let input = read.questionInt("Enter values: ");
+                    initialize_array[i][j] = input;
+                }
+            }
+
+            // for printing the values in 2d fashion
+            for(let i=0;i<rows;i++){
+                console.log("Two dimensional array: ", initialize_array);
+            }
+        }catch(err){
+            return err;
+        }
+
     },
 }
