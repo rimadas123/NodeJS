@@ -209,7 +209,6 @@ module.exports = {
 /*******************************************************************************************/ 
 
 // Merge Sort
-<<<<<<< HEAD
 
     //Split the array into two halves and merge them recursively
 
@@ -244,77 +243,37 @@ module.exports = {
                 result.push(right[indexRight])
                 indexRight++
             }
-=======
-      
-    merge(leftArr,rightArr){
-
-        let sortedArr = []; 
-
-            while(leftArr.length && rightArr.length){
-                if(leftArr[0]<=rightArr[0]){
-                    sortedArr.push(leftArr[0]);
-                    leftArr = leftArr.slice(1);
-                }
-                else{
-                    sortedArr.push(rightArr[0]);
-                    rightArr = rightArr.slice(1);
-                }
-            }
-
-            while(leftArr.length){
-                sortedArr.push(leftArr.shift());
-            }
-            while(rightArr.length){
-                sortedArr.push(rightArr.shift());
-            }
-            return sortedArr;
-            },
-
-/******************************************************************************************/
-        
-        //2Dimensional Array
-        twoDimensional(rows,cols){
-            let initialize_array = [];
-
-            for(let i=0; i<rows; i++){
-                initialize_array[i] = [];
-
-                for(let j=0; j<cols; j++){
-                    let input = read.question("Enter values: ");
-                    initialize_array[i][j] = input;
-                }
-            }
-
-            for(i=0;i<rows;i++){
-                console.log("2D array:" , initialize_array[i].join(" "));
-            }
-
-        },
-
-/******************************************************************************************/
-
-//Print harmonic numbers
-
-    harmonicNumber(n){
-        try{
-            if(n!=0){
-                let i;
-                let total=0;
-                for(i=1; i<=n;i++){ 
-                    total = total+1/i;  
-                } 
-                console.log(total);
-            }
-            else{
-                console.log("please enter greater than '0' number");
-            }
-        }catch(err){
-            return err;
->>>>>>> adda60db4e7a3e67c5a37e5d4ddc146b4fbf4fee
         }
 
       return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));  
 
     },
     
+    /****************************************************************************************************/
+    
+    // Find Number
+
+    find(powerOftwo) {
+        try {
+            var read = require('readline-sync');
+ 
+            var low = 0, high = powerOftwo - 1, mid;
+            while (low != high) {
+                mid = Math.floor((low + high) / 2);
+                console.log("Enter  1 if no is between " + low + " - " + mid + "\n Enter 2 if no is between "
+                    + (mid + 1) + " - " + high);
+                var answer = read.question();
+                mid = Math.floor((low + high) / 2);
+                if (answer == 1)
+                    high = mid;
+                else if(answer == 2){
+                    low = mid + 1;
+                }
+            }
+            console.log("Your guessed number", low);
+            return low;
+        } catch (error) {
+            console.log(" error");
+        }
+    },
 }

@@ -2,7 +2,7 @@
 
 const read = require('readline-sync');
 
-const num = Number(read.question("How many times you wanyt to filp a coin? "));
+const num = read.questionInt("How many times you wanyt to filp a coin? ");
 
 let tails=0;
 let heads=0;
