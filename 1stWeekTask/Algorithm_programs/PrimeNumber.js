@@ -5,7 +5,6 @@ const input = require('./Utility');
 const range = 1000;
 const arr = [];
 const arr1 = [];
-const arr2 = [];
 
 for(let i=0;i<range;i++){
     var resultPrime = input.primeNumber(i);
