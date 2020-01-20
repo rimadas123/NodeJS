@@ -8,7 +8,7 @@ const input = require('./Utility');
 
 let str = contents.split(", ");
 
-let searchWord = read.question("Enter a word: ");
+let searchWord = read.question("Enter the name of the states: ");
 
 str.sort();
 
