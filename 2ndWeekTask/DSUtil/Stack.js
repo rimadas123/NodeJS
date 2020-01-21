@@ -22,8 +22,9 @@ class Stack{
     push(element)
     {
         //push element into the items
-        this.items.push(element);
+        this.items[this.count] = element;
         this.count++;
+        return element;
     }
 
     //pop function
@@ -31,12 +32,13 @@ class Stack{
     {
         //return top most element in the stack and
         // removes it from the stack 
-        // Underflow if stack is empty
-
         if(this.items.length === 0){
-            console.log( "underflow");
+            console.log( "underflow"); // Underflow if stack is empty
         }
         this.count--;
+        let result = this.items[this.count];
+        this.items[this.count] = 0;
+        return result;
     }
 
     //peek function
@@ -44,32 +46,36 @@ class Stack{
     {
         //return the top most element from the stack
         //but does'nt delete it.
-        return this.items[this.items.length - 1];
+        let result = this.items[this.count - 1];
+        return result;
     }
 
     //isEmpty function
     isEmpty()
     {
         // return true if stack is empty
-        return this.items.length == 0;
+        return this.items.length <= 0;
     }
 
     //print function
     print()
     {
-        let str = "";
-        for(let i=0; i < this.items.length; i++){
-            str += this.items[i] + " ";
-           
-        }
-        return str;
+        // let str = "";
+        // for(let i=0; i < this.items.length; i++){
+        //     str += this.items[i] + " ";    
+        // }
+        // return str;
+
+        let newarray = this.items.map((nums)=>{
+            return nums;
+        })
+        return newarray;
     }
 
     size()
     {
-        return this.items.length;
+        return this.count;
     }
-
 }
 
 module.exports = {

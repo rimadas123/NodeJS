@@ -1,15 +1,15 @@
 /*
 * @file: LinkedList.js
 * @description: Implementation of linked list with all methods
-*               like add,removeFrom,removeElement,addAtfirst,size,
+*               like add,removeFrom,removeElement,addAtfirst,size
 *
 * @author: Rima Das
 * @version: 1.0
 * @date: 18/1/2020
 */ 
 
-
-class Node{         //User defined class node
+//User defined class node
+class Node{         
     //constructor
     constructor(data){
         this.data = data;
@@ -25,7 +25,12 @@ class LinkedList{
         this.size = 0;    
     }
     
-    add(element) //adds an element at the end of the list
+    /**
+    * @description this method is for adding the elements
+    * @param string, numbers
+    * @returns string ,numbers
+    */
+    add(element) 
     {
         //creates a new node
         let node = new Node();
@@ -55,8 +60,13 @@ class LinkedList{
     
     }
 
-    
-    insertAt(element,index){   // insert element at the position index of the list
+    /**
+    * @description this method is for inserting element at the position index of the list
+    * @param string ,numbers
+    * @returns string ,numbers
+    */
+    insertAt(element,index)
+    {   
         if(index > 0 && index > this.size)
             return false;
         else {
@@ -89,16 +99,27 @@ class LinkedList{
         }
     }
 
-    removeElement(element){      // removes a given element from the list
+    /**
+    * @description this method is for removing a given element from the list
+    * @param string, number
+    * @returns string ,number
+    */
+    removeElement(element){      
         let current = this.head;
-        let prev = null;
+        let prev = current;
+
+        if(current.data == element){
+            let temp = this.head;
+            this.head = this.head.next;
+            return;
+        }
 
         //iterate over the list
         while(current != null){
             // comparing element with current element if found 
             // then remove and return true
 
-            if(current.data === element){
+            if(current.data == element){
                 if(prev == null){
                     this.head = current.next;
                 } else {
@@ -113,8 +134,12 @@ class LinkedList{
         return -1;
     }
 
+    /**
+    * @description this method is for searching the element in the list 
+    * @param string, number
+    * @returns string ,number
+    */
     search(element)
-    // searches for the element in the list 
     {
         let current = this.head;
                    
@@ -127,9 +152,12 @@ class LinkedList{
         return false;
     }
 
-
+    /**
+    * @description this method is for printing the list items
+    * @param 
+    * @returns string ,numbers
+    */
     show() 
-     //prints the list items
     {
         let curr = this.head;
         let str = "";
@@ -143,8 +171,12 @@ class LinkedList{
         return str;    
     }
 
+    /**
+    * @description this method is to get the data and store it
+    * @param 
+    * @returns string ,numbers
+    */
     getData()
-    // get all the data
     {
         let curr = this.head;
         let str = "";
@@ -158,17 +190,28 @@ class LinkedList{
         return str;
     }
 
+    /**
+    * @description this method is to get the data and store it
+    * @param 
+    * @returns boolean
+    */
     isEmpty()
     // checks the list for empty
     {
         return this.size = 0;
     }
 
+    /**
+    * @description this method is for returning size of the elements
+    * @param 
+    * @returns number
+    */
     size_list()
     //gives the size of the list
     {
         console.log(this.size);
     }
+
 }
  
 module.exports = {

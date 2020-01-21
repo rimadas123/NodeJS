@@ -17,12 +17,13 @@ function unOrderedList()
     const contents = fs.readFileSync('input.txt','utf-8'); // reading from file
     const splitUp = contents.split(" "); //split it up from a string into word
     let i;
-    for(i = 0; i < splitUp.length;i++){
+    for(i = 0; i < splitUp.length;i++)
+    {
         list.add(splitUp[i]);
     }
     
     list.show();
-    let input = read.question("Enter a word: ");
+    let input = read.question("Enter any value: ");
 
     let result = list.search(input); //searching the value if it exists or not
     
@@ -33,7 +34,8 @@ function unOrderedList()
         list.removeElement(input);
         list.show()
     }
-    else{
+    else
+    {
         list.add(input);
     }
     list.show()
@@ -49,8 +51,6 @@ function unOrderedList()
 }
 
 unOrderedList();
-
-
 
 // list.add(10);
 // list.add(40);
