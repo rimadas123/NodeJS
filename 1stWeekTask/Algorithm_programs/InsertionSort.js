@@ -1,16 +1,28 @@
-//Insertion Sort
+/*
+* @file: InsertionSort.js
+* @description: To sort the values by using insertion sort
+*               and return the sorted array
+* @author: Rima Das <rdas5969@gmail.com>
+* @version: 1.0
+* @date: 18/1/2020
+*/
 
-var read = require('readline-sync');
+const read = require('readline-sync');
+const input = require('./Utility');
 
-var input = require('./Utility');
-
-let arr = read.questionInt("Enter size: ");
-let array = [];
-
-for(var i=0; i<arr; i++)
+function insertionSort() 
 {
-    array[i] = read.question("Enter values: ");
-}
-var sortedResult = input.insertionSort(array);
+    const arr = read.questionInt("Enter size: ");
+    const array = [];
 
-console.log(sortedResult);
+    for(var i=0; i<arr; i++)
+    {
+        array[i] = read.question("Enter values: ");
+    }
+    let sortedResult = input.insertionSort(array);
+    console.log(sortedResult);
+}
+
+insertionSort();
+
+

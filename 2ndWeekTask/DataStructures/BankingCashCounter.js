@@ -7,29 +7,29 @@
 * @date: 21/1/2020
 */
 
-const read = require('readline-sync');
-const Que = require('../DSUtil/Queue');
-const queue = new Que.Queue;
-
-function CashCounter(){
-   let input = read.questionInt("Enter the number of person who are in the queue: ");
-   console.log(input);
-//    let res = queue.enqueue(input);
-//    console.log(res);
-   let pattern = /^[A-Za-z]+$/;
-    for(let i = 0; i < input.length; i++)
-    {
-        var name = read.question("Enter name of an individual person: ");
-
-        if(name.match(pattern)){
-            queue.enqueue(name);
-            queue.show()
-        }    
-        else{
-            console.log("invalid input try");
+function CashCounter()
+{
+    try{
+        const read = require('readline-sync');
+        const Que = require('../DSUtil/Queue');
+        
+        const input = read.questionInt("Enter the number of person who are in the queue: ");
+        const queue = new Que.Queue(input);
+        const pattern = /^[A-Za-z]+$/; //checking only letters
+        for(let i = 0; i < input.length; i++)
+        {
+            var name = read.question("Enter name of an individual person: ",i);
+    
+            if(name.match(pattern))
+            {
+                queue.enqueue(name);
+                queue.show()
+            }    
         }
-        queue.peek()
+    }catch(err){
+        return err;
     }
+
 }
 CashCounter();
 

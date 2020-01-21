@@ -1,14 +1,28 @@
+/*
+* @file: BubbleSortTest.js
+* @description: To Sort the element in array using bubble sort method
+*               string value
+* @author: Rima Das <rdas5969@gmail.com>
+* @version: 1.0
+* @date: 18/1/2020
+*/
 const assert = require('chai').assert;
-const utility = require('../Utility')
-describe('Sorting numbers using Bubble sort',function(){
-    it('should not exceed size more than 10', function(){
-        let arr=[0, 2, 4, 6, 6, 6, 7, 7, 9, 9];
-        let result = utility.bubbleSort(arr);
-        assert.equal(result,'size should not exceed more than 10')
+const utility = require('../BubbleSort');
+
+describe('Bubble sort',function(){
+    /*
+     * @description This Method Test Array size is valid or not 
+     * @returns true or false 
+     */
+    it('Array size is valid', function(){
+        assert.isTrue(result > 1,'size should be more than 1')
     });
-    it('should not return undefined value', function(){
-        let result = utility.anagram(undefined);
-        assert.equal(result,'value cannot be undefined')
+    /*
+     * @description This Method Test Array size is valid or not 
+     * @returns true or false 
+     */
+    it('Array size not valid', function(){
+        assert.isTrue(result < 1,'array size is valid')
         done();
     });
 });
