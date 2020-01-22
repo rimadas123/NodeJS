@@ -16,9 +16,7 @@ describe('BinarySearch', function () {
        * @description This Method test Array size is valid
        * @returns true or false 
        */
-    it('Array size is valid', function () {
-        let format = /^[0-9]+$/;
-
+    it('Array is not empty', function () {
         let size = result[0];
         assert.isTrue(size > 0, ' array size is not valid its should be greater than zero ');
     });
@@ -36,7 +34,7 @@ describe('BinarySearch', function () {
        * @description This TestCase search el;emt found then returns true 
        * @returns true or false 
        */
-      it('search element not found', function () {
+      it('search element found', function () {
         let result = result[1];
         assert.equal(result, -1, 'search Element is found :');
     });

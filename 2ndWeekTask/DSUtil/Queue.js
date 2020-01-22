@@ -10,10 +10,9 @@
 
 class Queue{
     constructor(){
-        this.items = [];
-        this.size = 0;
-        this.front = 0;
-        this.rear = 0;
+       this.count = 0;
+       this.lowestCount = 0;
+       this.items = {};
     }
 
     /**
@@ -23,10 +22,8 @@ class Queue{
     */
     enqueue(element)
     {
-        this.items[this.rear] = element;
-        this.rear = this.rear + 1;
-        this.size = this.size + 1;
-        return this.items;
+        this.items[this.count] = element;
+        this.count++;
     }
 
     /**
@@ -38,18 +35,26 @@ class Queue{
     {
         //removing the element from the queue returns underflow
         // when called on empty queue
-        if(this.items.length === 0){
-            return "undefined";
+        if(this.isEmpty()){
+            return undefined;
         } 
-        this.size = this.size - 1;
-        let result = this.items.shift();
+
+        let result = this.items[this.lowestCount];
+        delete this.items[this.lowestCount];
+        this.lowestCount++;
         return result;
     }
 
+    /**
+    * @description this method will return item from the front of the queue.
+    * @returns string ,numbers
+    */
     front()
     {
-        let temp = this.items[this.front];
-        console.log(temp[0]);
+        if(this.isEmpty()){
+            return undefined;
+        }
+        return this.items[this.lowestCount];
     }
 
     rear()
@@ -78,12 +83,12 @@ class Queue{
 
     isEmpty()
     {
-        return this.items.length === 0;
+        return this.count - this.lowestCount == 0;
     }
 
     size()
     {
-        return this.size.length;
+        return this.count - this.lowestCount;
     }
 }
 

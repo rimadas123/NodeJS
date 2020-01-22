@@ -20,9 +20,9 @@ for(let i=0;i<=num;i++){
     }
 }
 
-PerOfTails = Math.floor(tails*100/num);
+let PerOfTails = Math.floor(tails*100/num);
 console.log(`Percentage of total number of tails: ${PerOfTails}%`);
 
-PerOfHeads = 100-PerOfTails;
+let PerOfHeads = 100-PerOfTails;
 console.log(`Percentage of total number of heads: ${PerOfHeads}%`);
 

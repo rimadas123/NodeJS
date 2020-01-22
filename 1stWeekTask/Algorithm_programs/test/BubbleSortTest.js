@@ -15,14 +15,14 @@ describe('Bubble sort',function(){
      * @returns true or false 
      */
     it('Array size is valid', function(){
-        assert.isTrue(result > 1,'size should be more than 1')
+        utility.isTrue(result > 1,'size should be more than 1')
     });
     /*
      * @description This Method Test Array size is valid or not 
      * @returns true or false 
      */
     it('Array size not valid', function(){
-        assert.isTrue(result < 1,'array size is valid')
+        utility.isTrue(result < 1,'array size is valid')
         done();
     });
 });

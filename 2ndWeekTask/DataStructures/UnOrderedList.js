@@ -14,7 +14,8 @@ const list = new Linked.LinkedList;
 
 function unOrderedList()
 {
-    const contents = fs.readFileSync('input.txt','utf-8'); // reading from file
+    try {
+        const contents = fs.readFileSync('input.txt','utf-8'); // reading from file
     const splitUp = contents.split(" "); //split it up from a string into word
     let i;
     for(i = 0; i < splitUp.length;i++)
@@ -40,7 +41,6 @@ function unOrderedList()
     }
     list.show()
     
-    
     let word = list.getData();
     console.log(word);
     // appending the values in the existing file
@@ -48,6 +48,11 @@ function unOrderedList()
         if(err) throw err;
         console.log("modified");
     });
+
+    } catch (error) {
+        return error;
+    }
+    
 }
 
 unOrderedList();

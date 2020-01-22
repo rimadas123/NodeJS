@@ -206,7 +206,7 @@ class LinkedList{
     * @param 
     * @returns number
     */
-    size_list()
+    sizeOf()
     //gives the size of the list
     {
         console.log(this.size);
