@@ -36,7 +36,7 @@ describe('DayOfWeek Negative testing', function () {
 
  it('Year is not valid ', function () {
      var year = result[2];
-     assert.isTrue(year < 999 || year > 99999, ' year is valid  4 digits  ')
+     assert.isTrue(year < 999 || year > 99999, ' year is should have only 4 digits  ')
  });
 
 });
@@ -58,7 +58,7 @@ describe('DayOfWeek Positive testing', function () {
 
     it('Month is valid ', function () {
         var month = result[1];
-        assert.isTrue(month > 0 && month < 13, 'Month is Not valid it is should 1 to 12')
+        assert.isTrue(month > 0 && month < 13, 'Month is Not valid it is should be between 1 to 12')
     });
        /*
        * @description This Method Test Array size is valid or not 

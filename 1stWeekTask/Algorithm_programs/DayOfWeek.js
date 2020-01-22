@@ -10,12 +10,14 @@
 const read = require('readline-sync');
 const input = require('./Utility');
 
+
 function dayOfWeek() 
 {
     try{
         const month = read.question("Enter month: ");
         const date = read.question("Enter date: ");
         const year = read.question("Enter year: ");
+        // calculated the day using a formula
         const result = input.dayOfWeek(month,date,year);
         
                 switch(result){

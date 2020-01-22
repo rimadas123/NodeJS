@@ -12,8 +12,9 @@ function palindromeChecker()
     try{
         const read = require('readline-sync');
         const Deq = require('../DSUtil/Deque');
+        // taking input from the user
         let input = read.question("Enter a string");
-        
+        // creating object of deque
         const deq = new Deq.Deque();
         if(input.length < 2){
             console.log("Enter valid input");
@@ -31,19 +32,21 @@ function palindromeChecker()
         // deq.removeFront();
         // deq.show();
 
-        let palindrome = true;
+        let palindrome;
         
-        while(deq.size() > 1 && palindrome)
+        while(deq.size() > 1 && deq.rear != deq.front)
         {
             if(deq.removeFront() === deq.removeBack())
             {
-                return true;
+                palindrome = true;
             }
             else 
             {
-                return false;
+                palindrome = false;
+
             }
         }
+
         if(palindrome){
             console.log("It is a palindrome");
         }

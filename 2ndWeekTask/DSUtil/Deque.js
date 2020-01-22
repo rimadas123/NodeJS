@@ -1,16 +1,16 @@
 /*
-* @file: LinkedList.js
-* @description: Implementation of Queue with all methods
-*               like queue, enqueue, dequeue, isEmpty, size
+* @file: Deque.js
+* @description: Implementation of Deque with all methods
+*               like deque, addfront, addback, removefront, removeback
 *
 * @author: Rima Das
 * @version: 1.0
-* @date: 20/1/2020
+* @date: 22/1/2020
 */
 
 class Node {
-    constructor(data){
-        this.data = data;
+    constructor(element){
+        this.value = element;
         this.next = null;
     }
 }
@@ -18,48 +18,48 @@ class Node {
 class Deque
 {
     constructor(){
-        this.items = [];
-        this.count = 0;
-        this.lowestCount = 0;
+        this.front = null;
+        this.rear = null;
     }
 
     /**
     * @description this method is for adding the elements from front
-    * @param string, numbers
-    * @returns string ,numbers
+    * @param {*} element : data to add
     */
     addfront(element)
     {
         // creates a new node
-        let node = new Node();
-        node.data = element;
-
-        if(this.isEmpty()) 
-        {
-            this.addBack(element);
-        } else if(this.lowestCount > 0) {
-            this.lowestCount --;
-            this.items[this.lowestCount] = element;
+        let node = new Node(element);
+        
+        //if deque is initially empty
+        if(this.front == null) {
+            this.front = node;
+            this.rear = node;
         } else {
-            for(let i = this.count; i > 0 ; i--) {
-                this.items[i] = this.items[i-1];
-            }
-            this.count ++;
-            this.items[0] = element;
+            //add from node in front
+            this.front.next = node;
+            this.front = node;
         }
-        return true;
         
     }
 
     /**
     * @description this method is for adding the elements from back
-    * @param string, numbers
-    * @returns string ,numbers
+    * @param {*} element : data to add
     */
-    addBack(element) //similar to enqueue method
+    addBack(element) 
     {
-        this.items[this.count] = element;
-        this.count++;
+        // creates a new node
+        let node = new Node(element);
+
+        //if deque is initially empty
+        if(this.front == null) {
+            this.front = node;
+            this.rear = node;
+        } else {
+            node.next = this.rear;
+            this.rear = node;
+        }
     }
 
     /**
@@ -68,14 +68,17 @@ class Deque
     */
     removeFront()
     {
-        if(this.isEmpty()){
-            return undefined;
+        //deque is initially empty
+        if(this.front == null) {
+            return false;
         }
-
-        let result = this.items[this.lowestCount];
-        delete this.items[this.lowestCount];
-        this.lowestCount++;
-        return result;
+        //check if the last element is removed or not
+        if(this.rear == this.front) {
+            let data = this.rear.data;
+            this.rear = null;
+            this.front = null;
+            return data;
+        }
     }
 
     /**
@@ -84,13 +87,23 @@ class Deque
     */
     removeBack()
     {
-        if(this.isEmpty()){
-            return undefined;
+        // if deque is empty
+        if(this.rear == null) {
+            return false;
         }
-        let result = this.items[this.count - 1];
-        delete this.items[this.count - 1];
-        this.count--;
-        return result;
+        // if last element in deque is to removed
+        if(this.rear == this.front) {
+            let data = this.rear.value;
+            this.rear = null;
+            this.front = null;
+            return data;
+        }
+        //remove from rear
+        else {
+            let data = this.rear.value;
+            this.rear = this.rear.next;
+            return data;
+        }
     }
 
     /**
@@ -99,7 +112,10 @@ class Deque
     */
     isEmpty()
     {
-        return this.count - this.lowestCount == 0;
+        if(this.front == this.rear == null) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -113,10 +129,11 @@ class Deque
 
     show()
     {
-        let output = this.items.map((nums)=>{
-            return nums;
-        })
-        console.log(output);
+        let temp = this.rear;
+        while(temp != null) {
+            console.log(temp.value);
+            temp = temp.next;
+        }
     }
 }
 
