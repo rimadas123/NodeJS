@@ -12,12 +12,13 @@ var result = require('../TemperatureConversion');
 
 describe('Temperature Conversion', function () {
        /*
-       * @description This Test is for temperaure should be number 
+       * @description This Test is for checking if the input is a number or not
        * @returns true or false 
        */
-    it('temperatuire should number ', function () {
-        assert.isNumber(result[1], 'Number');
-        console.log(result[1]);
-
+    it('temperature cannot be null ', function () {
+        var t = result[0];
+        assert.notEqual(t,'','cannot be null');
+        console.log(t);
     });
+
 });

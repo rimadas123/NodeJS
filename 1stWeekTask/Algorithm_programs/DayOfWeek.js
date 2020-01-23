@@ -45,10 +45,11 @@ function dayOfWeek()
                 default:
                         console.log("wrong input");
                 }
+        return [date,month,year,result];
      }catch(err)
      {
        return err;    
      }
 }
 
-dayOfWeek();
+module.exports = dayOfWeek();

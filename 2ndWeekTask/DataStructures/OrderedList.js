@@ -27,7 +27,7 @@ function orderedList()
 
     let searchValue = list.search(input);
 
-    if(searchValue != true)
+    if(searchValue !== true)
     { 
         list.add(input); 
     }
@@ -41,6 +41,7 @@ function orderedList()
     
     let word = list.getData();
     console.log(word);
+
     let res = fs.writeFile("Numberfile.txt",word, (err) => {
         if(err) throw err;
         console.log("modified");

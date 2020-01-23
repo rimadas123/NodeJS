@@ -35,8 +35,7 @@ class LinkedList{
         //creates a new node
         let node = new Node();
         node.data = element;
-
-
+ 
         //to store current node
         let current;
 
@@ -159,6 +158,7 @@ class LinkedList{
     */
     show() 
     {
+          
         let curr = this.head;
         let str = "";
         while (curr) {
@@ -168,6 +168,7 @@ class LinkedList{
         }
         curr = curr.next;
         }
+        console.log(str);
         return str;    
     }
 

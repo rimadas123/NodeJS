@@ -11,20 +11,20 @@ function CashCounter()
 {
     try{
         const read = require('readline-sync');
+        const input = require('../../1stWeekTask/Algorithm_programs/Utility')
         const Que = require('../DSUtil/Queue');
         const amount = 10000;
         const input = read.questionInt("Enter the number of person who are in the queue: ");
         const queue = new Que.Queue(input);
         console.log(queue);
         
-        const pattern = /^[A-Za-z]+$/; //checking only letters
         for(let i = 0; i < queue.length; i++)
         {
             do{
                 var name = read.question("Enter name of an individual person: ",i);
                 queue.enqueue(name);  
             }    
-            while(name.match(pattern))  
+            while(input.letterValid(name) == false)  
         }
         
         let old_amount = amount;

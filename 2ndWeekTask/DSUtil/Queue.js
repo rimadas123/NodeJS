@@ -8,6 +8,13 @@
 * @date: 20/1/2020
 */
 
+class Node {
+    constructor(element){
+        this.front = null;
+        this.rear = null;
+    }
+}
+
 class Queue{
     constructor(){
        this.count = 0;
@@ -22,8 +29,18 @@ class Queue{
     */
     enqueue(element)
     {
-        this.items[this.count] = element;
-        this.count++;
+       // creates a new node
+       let node = new Node(element);
+
+        //if queue is initially empty
+        if(this.front == null) {
+            this.front = node;
+            this.rear = node;
+        } else {
+            //add from node in front
+            this.front.next = node;
+            this.front = node;
+        }
     }
 
     /**

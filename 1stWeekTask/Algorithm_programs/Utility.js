@@ -159,7 +159,11 @@ module.exports = {
 
 /**************************************************************************************************/ 
 
-// Calculate temperature in celsius and farenheit
+       /*
+       * @description calculate temperature in celsius and farenheit
+       * @params number
+       * @returns number 
+       */
 
     temperatureConversion(temp)
     {
@@ -183,7 +187,12 @@ module.exports = {
 
 /***********************************************************************************************/
 
-//Calculate Monthly Payment
+      /*
+       * @description calculate monthly payment by using simple interest formula
+       * @params number,number,number
+       * @returns number 
+       */
+
 
     monthlyPayment(year,principal,rateOfInterest)
     {
@@ -203,7 +212,12 @@ module.exports = {
 
 /***********************************************************************************************/
 
-//Binary Search
+      /*
+       * @description this method is used to search a string by using binary search algorithm
+       * @params string,number
+       * @returns string,number 
+       */
+
 
     binarySearch(items,values)
     {
@@ -233,7 +247,11 @@ module.exports = {
 
 /**********************************************************************************************/
 
-//Find Prime Numbers between 0 - 1000
+       /*
+       * @description this method is used to find prime number betweeb the range of 1-1000
+       * @params string,number
+       * @returns string,number 
+       */
 
     primeNumber(num)
     {
@@ -260,9 +278,10 @@ module.exports = {
 
 /*******************************************************************************************/ 
 
-// Merge Sort
-
-    //Split the array into two halves and merge them recursively
+       /*
+       * @description Merge Sort => Split the array into two halves and merge them recursively
+       * @returns true or false 
+       */
 
     mergeSort(arr) 
     {
@@ -314,7 +333,10 @@ module.exports = {
     
     /****************************************************************************************************/
     
-    // Find Number
+       /*
+       * @description This function is used to find a number 
+       * @returns number
+       */
 
     find(powerOftwo) 
     {
@@ -373,4 +395,60 @@ module.exports = {
         }
 
     },
+    /*********************************************************************************************/
+      /*
+       * @description This function is used to find a number 
+       * @params number
+       * @returns number
+       */
+        yearValid(yr){
+            try {
+                const pattern = /^\d{4}$/;
+                if(yr.match(pattern)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (error) {
+                return error
+            }    
+        },
+    /*********************************************************************************************/ 
+       /*
+       * @description This function is used to validate only number using regrex pattern [0-9]
+       * @params number
+       * @returns boolean
+       */
+    numValid(num){
+        try {
+            const pattern = /\[0-9]/;
+            if(num.match(pattern)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (error) {
+            return error
+        }   
+    },
+    /********************************************************************************************/
+       /*
+       * @description This function is used to validate only letters or characters using regrex pattern [a-zA-Z]
+       * @params number
+       * @returns boolean
+       */
+
+       letterValid(letters){
+           try {
+               const pattern = /^[A-Za-z]+$/;
+               if(letters.match(pattern)) {
+                   return true;
+               } else {
+                   return false;
+               }
+           } catch (error) {
+               return error
+           }
+       },
+       
 }

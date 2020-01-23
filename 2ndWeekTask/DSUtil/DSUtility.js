@@ -10,8 +10,8 @@
 module.exports = {
     /**
     * @description this method is used to return hash number
-    * @param Integer number
-    * @returns factorialnumber 
+    * @param number
+    * @returns number 
     */
     hash(strg){
         var str = Math.floor(strg%11);
@@ -19,12 +19,12 @@ module.exports = {
     },
 
      /**
-    * @description this method is for find the facttorials fopr binary tree
-    * @param Integer number
-    * @returns factorialnumber 
+    * @description this method is for find the factorial for binary tree
+    * @param number
+    * @returns number
     */
    factorial(num) {
-    let fact = 1;;
+    let fact = 1;
 
     for (i = 1; i <= num; i++) {
         fact = fact * i;
@@ -34,8 +34,8 @@ module.exports = {
     },
     /**
     * @description this method is for binary trees
-    * @param Integer number
-    * @returns number of binary trees
+    * @param number
+    * @returns number 
     */
     binaryTree(nodes) {
         if (nodes >= 1 && nodes <= 85) {

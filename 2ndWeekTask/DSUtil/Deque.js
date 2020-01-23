@@ -64,7 +64,7 @@ class Deque
 
     /**
     * @description this method is for removing the elements from front
-    * @returns string ,numbers
+    * @returns string ,number
     */
     removeFront()
     {

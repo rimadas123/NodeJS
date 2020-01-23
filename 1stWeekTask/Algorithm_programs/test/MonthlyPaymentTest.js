@@ -8,30 +8,32 @@
 
 const assert = require('chai').assert;
 const result = require('../MonthlyPayment');
+console.log(result);
+
 
 describe('MonthlyPayment', function () {
        /*
        * @description This Test is for valid principal  
        * @returns true or false 
        */
-    it('principle is valid', function () {
-        var p = result[0];
-        assert.isTrue(p > 0, 'principal value should not be negative');
+    it('principle is not valid', function () {
+        var p = result[1];
+        assert.isTrue(p > 0, 'principal value should not be negative and greater than zero');
     });
        /*
        * @description This Test is for Valid rate of user entered
        * @returns true or false 
        */
     it('rate is valid its positive ', function () {
-        var rate = result[1];
-        assert.isTrue(rate >= 0, ' rate of interest should not be a negative value');
+        var rate = result[2];
+        assert.isTrue(rate > 0, ' rate of interest should not be a negative value');
     });
        /*
        * @description This Test is for checking valid years number
        * @returns true or false
        */
     it('Years Number is valid  is positive  ', function () {
-        var t = result[2];
+        var t = result[0];
         assert.isTrue(t > 0, ' year should be positive number ');
     });
        /*

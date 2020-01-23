@@ -15,7 +15,7 @@ const list = new Linked.LinkedList;
 function unOrderedList()
 {
     try {
-        const contents = fs.readFileSync('input.txt','utf-8'); // reading from file
+    const contents = fs.readFileSync('input.txt','utf-8'); // reading from file
     const splitUp = contents.split(" "); //split it up from a string into word
     let i;
     for(i = 0; i < splitUp.length;i++)

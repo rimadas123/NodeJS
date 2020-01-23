@@ -8,42 +8,44 @@
 * @date: 22/1/2020
 */
 
+var fs = require('fs');
+var list = require('../DSUtil/LinkedList');
+var hash = require('../DSUtil/DSUtility');
+var read = require('readline-sync');
+
 function hashingFunction(){
     try {
-        const fs = require('fs');
-        const list = require('../DSUtil/LinkedList');
-        const hash = require('../DSUtil/DSUtility');
-        const read = require('readline-sync');
         
-        let slot = [[],[],[],[],[],[],[],[],[],[],[]];
+        var slot = [[],[],[],[],[],[],[],[],[],[],[]];
          slot = new list.LinkedList;
 
-        for(let i = 0; i<11; i++){
+        for(let i = 0; i < 11; i++){
             
              slot[i] = new list.LinkedList;
         } 
- 
-        let readFile = file.readFileSync('SlotNumber.txt','utf-8');
+               
+        let readFile = fs.readFileSync('SlotNumber.txt','utf-8');
         let splitUp = readFile.split(" ");
-        console.log(splitUp);
 
         for(let i = 0; i < splitUp.length; i++){
             let slotNum = hash.hash(splitUp[i]);
-
+  
             slot[slotNum].add(splitUp[i]);
-            console.log(slot[slotNum]);
         }
 
+        
         for(let i = 0; i < 11; i++){
 
-            console.log(i + "-> :\n");
+            console.log(i + "--> :\n");
             slot[i].show();
         }
 
         let input = read.questionInt("Enter a number to search: ");
         let slotNumber = hash.hash(input);
         let value = slot[slotNumber].search(input);
+        
         if(value == true) {
+
             console.log(`\nElement found at slot ${slotNumber} and deleted\n`);
             slot[slotNumber].removeElement(input);
         }
@@ -53,21 +55,19 @@ function hashingFunction(){
             slot[i].show();
         }
         
-        
         for(i=0;i<11;i++){
             let str = str + slot[i].toString();
             return str;
         }
+        slot.show();
 
         let word = slot.getData();
         console.log(word);
         
-        let res = fs.writeFile('SlotNumber.txt',word,(err) => {
+        let res = fs.writeFileSync("SlotNumber.txt",word, (err) => {
             if(err) throw err;
             console.log("modified");
         });
-
-        slot.show();
         
     } catch (error) {
         return error;

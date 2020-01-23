@@ -13,8 +13,9 @@ function binary() {
         let read = require("readline-sync");
 
         let nodes = read.questionInt("Enter no. of nodes: ");
+        // checks whether the nodes is not an alphanumeric or less than 1
         if(isNaN(nodes) || nodes < 1) {
-            throw "Enter valid number of nodes"
+            console.log("Enter valid number of nodes");
         } else {
             let result = bin.binaryTree(nodes);
         }
