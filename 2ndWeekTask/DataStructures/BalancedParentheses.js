@@ -31,10 +31,11 @@ function balancedParentheses()
         else{
             console.log("It is not balanced");
         }
+        return [str];
     }catch(err){
         return err;
     }
     
 }
 
-balancedParentheses();
+module.exports = balancedParentheses();

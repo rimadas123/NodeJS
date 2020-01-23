@@ -19,7 +19,7 @@ module.exports = {
     },
 
      /**
-    * @description this method is for find the factorial for binary tree
+    * @description this method is to find the factorial for binary tree
     * @param number
     * @returns number
     */
@@ -33,20 +33,25 @@ module.exports = {
     return fact;
     },
     /**
-    * @description this method is for binary trees
+    * @description this method is to calculate binary trees
     * @param number
     * @returns number 
     */
     binaryTree(nodes) {
         if (nodes >= 1 && nodes <= 85) {
-            var no_of_trees = Math.floor((this.factorial(2 * nodes)) / (this.factorial(nodes + 1) *
+            let no_of_tree = Math.floor((this.factorial(2 * nodes)) / (this.factorial(nodes + 1) *
                 this.factorial(nodes)));
-            console.log(no_of_trees);
+            console.log(no_of_tree);
         } else {
             console.log(" number should be between 1 to 1000");
 
         }
 
-        return no_of_trees;
+        return no_of_tree;
     },
+
+    calendar(month,year) {
+
+        
+    }
 }

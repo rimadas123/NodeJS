@@ -53,7 +53,7 @@ function palindromeChecker()
         else{
             console.log("It is not a palindrome");
         }
-        
+        return [input];
 
     }catch(err){
         return err;

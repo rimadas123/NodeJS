@@ -7,23 +7,28 @@
 * @date: 23/1/2020
 */
 
-const input = require('../../1stWeekTask/Algorithm_programs/Utility');
-const read = require('readline-sync');
-const month = read.question("Enter month: ");
-const date = read.question("Enter date: ");
-const year = read.question("Enter year: ");
-
 function calendar(){
     try {
-        
-        const weekDay =  input.dayOfWeek(month,date,year);
-        console.log(weekDay);
-
-        const monthDay = [" ","January", "February","March","April","May","June","July","Spetember","October","November","December"];
-
-        for(let i=0;i<monthDay.length;i++) {
-            console.log (monthDay[i]);
+        const input = require('../DSUtil/DSUtility');
+        const read = require('readline-sync');
+        const month = read.question("Enter month: ");
+        if(isNaN(month)) {
+            throw "Enter valid month"
         }
+
+        const year = read.question("Enter year: ");
+        if(isNaN(year)) {
+            throw "Enter valid year"
+        }
+
+        const weekDay =  input.calendar(month,year);
+        
+        let arr = [];
+        arr.push(month);
+        arr.push(year);
+        arr.push(day);
+
+        return arr;
 
     } catch (error) {
         return error;

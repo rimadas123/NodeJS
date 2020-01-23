@@ -8,15 +8,13 @@
 * @date: 22/1/2020
 */
 
-var fs = require('fs');
-var list = require('../DSUtil/LinkedList');
-var hash = require('../DSUtil/DSUtility');
-var read = require('readline-sync');
-
 function hashingFunction(){
     try {
-        
-        var slot = [[],[],[],[],[],[],[],[],[],[],[]];
+        const fs = require('fs');
+        const list = require('../DSUtil/LinkedList');
+        const hash = require('../DSUtil/DSUtility');
+        const read = require('readline-sync');
+        const slot = [[],[],[],[],[],[],[],[],[],[],[]];
          slot = new list.LinkedList;
 
         for(let i = 0; i < 11; i++){

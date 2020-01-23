@@ -19,9 +19,10 @@ function binary() {
         } else {
             let result = bin.binaryTree(nodes);
         }
+        return [nodes];
     } catch (error) {
         return error;
     }
 }
 
-binary();
+module.exports = binary();
