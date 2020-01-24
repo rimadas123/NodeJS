@@ -18,7 +18,7 @@ describe('MonthlyPayment', function () {
        */
     it('principle is not valid', function () {
         var p = result[1];
-        assert.isTrue(p > 0, 'principal value should not be negative and greater than zero');
+        assert.isAtLeast(p,0, 'principal value should be greater than zero');
     });
        /*
        * @description This Test is for Valid rate of user entered
@@ -26,7 +26,7 @@ describe('MonthlyPayment', function () {
        */
     it('rate is valid its positive ', function () {
         var rate = result[2];
-        assert.isTrue(rate > 0, ' rate of interest should not be a negative value');
+        assert.isAtLeast(rate,0, ' rate of interest should not be a negative value');
     });
        /*
        * @description This Test is for checking valid years number
@@ -34,7 +34,7 @@ describe('MonthlyPayment', function () {
        */
     it('Years Number is valid  is positive  ', function () {
         var t = result[0];
-        assert.isTrue(t > 0, ' year should be positive number ');
+        assert.isAtLeast(t, 0, ' year should be positive number ');
     });
        /*
        * @description This Test is for output of program shoiuld be positive number
@@ -42,6 +42,6 @@ describe('MonthlyPayment', function () {
        */
     it('payment should not be negetive or Null', function () {
         var payment = result[3];
-        assert.isTrue(payment >= 0, ' Final output should be positive number ');
+        assert.isAtLeast(payment,0, ' Final output should be positive number ');
     });
 });

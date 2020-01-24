@@ -12,13 +12,18 @@ const read = require('../PalindromeChecker');
 
 describe('Palindrome Testing', function () {
     
-    it('String length is not valid', function () {
+    it('String length is valid', function () {
         let result = read[0];
-        assert.isTrue(result > 2, 'length should be greater than 2');
+        assert.isAtLeast(result,2, 'length should be greater than 2');
     });
 
-    it('input cannot be null', function () {
+    it('input is not null', function () {
         var result = read[0];
-        assert.isNotNull(result,'','cannot be null')
+        assert.exists(result,'cannot be null')
+    });
+
+    it('Result is not a boolean value', function () {
+        var result = read[1];
+        assert.isBoolean(result,'expected boolean value')
     });
 })

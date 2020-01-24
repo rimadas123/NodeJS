@@ -1,8 +1,22 @@
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
-async function fun1(request,response) {
-    response = await request.get('https://www.google.com');
-    if(response.err) { console.log('error');}
-    else { console.log('fetched response');}
+
+
+function doubleAfter2Seconds(x) {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(x * 2);
+        },2000);
+    });
 }
-fun1();
+
+async function addSync(x) {
+    const a = await doubleAfter2Seconds(10);
+    const b = await doubleAfter2Seconds(20);
+    const c = await doubleAfter2Seconds(30);
+    return (x + a + b + c);
+}
+
+addSync(10).then((sum) =>{
+    console.log(sum);
+});

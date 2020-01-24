@@ -1,6 +1,6 @@
 /*
 * @file: BinarySearchTress.js
-* @description: find number of nodes using binary search tree
+* @description: To find number of nodes using binary search tree
 *
 * @author: Rima Das <rdas5969@gmail.com>
 * @version: 1.0
@@ -9,17 +9,18 @@
 
 function binary() {
     try {
-        let bin = require("../DSUtil/DSUtility");
-        let read = require("readline-sync");
+        var bin = require("../DSUtil/DSUtility");
+        var read = require("readline-sync");
 
-        let nodes = read.questionInt("Enter no. of nodes: ");
+        var nodes = read.questionInt("Enter no. of nodes: ");
+        
         // checks whether the nodes is not an alphanumeric or less than 1
         if(isNaN(nodes) || nodes < 1) {
             console.log("Enter valid number of nodes");
         } else {
-            let result = bin.binaryTree(nodes);
+            var result = bin.binaryTree(nodes);
         }
-        return [nodes];
+        return [nodes,result];
     } catch (error) {
         return error;
     }

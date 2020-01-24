@@ -124,7 +124,7 @@ class Deque
     */
     size()
     {
-        return this.count - this.lowestCount;
+        return this.rear - this.front;
     }
 
     show()

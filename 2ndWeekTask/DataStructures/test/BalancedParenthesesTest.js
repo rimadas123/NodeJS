@@ -8,12 +8,25 @@
 */
 
 const assert = require('chai').assert;
-const result = require('../BalancedParentheses');
+let read = require('../BalancedParentheses');
 
 describe('Balanced Parentheses Testing', function () {
     
     it('String should not be empty', function () {
         let result = read[0];
-        assert.isNotEmpty(result, 'String cannot be empty')
+        console.log(result);
+        assert.isNotEmpty(result,'','expected not to be empty')
+    });
+
+    it('Result cannot be null', function () {
+        let result = read[1];
+        console.log(result);
+        assert.isNotNull(result,'','not a null')
+    });
+
+    it('Should return a boolean value', function () {
+        let result = read[1];
+        console.log(result);
+        assert.isBoolean(result,'','expect a boolean value')
     });
 })

@@ -39,7 +39,7 @@ module.exports = {
     */
     binaryTree(nodes) {
         if (nodes >= 1 && nodes <= 85) {
-            let no_of_tree = Math.floor((this.factorial(2 * nodes)) / (this.factorial(nodes + 1) *
+            var no_of_tree = Math.floor((this.factorial(2 * nodes)) / (this.factorial(nodes + 1) *
                 this.factorial(nodes)));
             console.log(no_of_tree);
         } else {
