@@ -1,0 +1,55 @@
+{
+    "rice" : [
+        {
+            "name" : "Basmati",
+            "weight" : 100,
+            "priceperkg" : 100
+        },
+        {
+            "name" : "Brown rice",
+            "weight" : 80,
+            "priceperkg" : 200
+        },
+        {
+            "name" : "HMT rice",
+            "weight" : 60,
+            "priceperkg" : 250
+        }
+    ],
+
+    "pulses" : [
+        {
+            "name" : "Kidney Beans",
+            "weight" : 50,
+            "priceperkg" : 90
+        },
+        {
+            "name" : "Black Eyed Pea",
+            "weight" : 66,
+            "priceperkg" : 45
+        },
+        {
+            "name" : "Green Gram beans",
+            "weight" : 30,
+            "priceperkg" : 50
+        }
+    ],
+
+    "wheats" : [
+        {
+            "name" : "Aashirvad Atta",
+            "weight" : 50,
+            "priceperkg" : 98
+        },
+        {
+            "name" : "Laxmi Bhog Atta",
+            "weight" : 35,
+            "priceperkg" : 76
+        },
+        {
+            "name" : "PillsBury Atta",
+            "weight" : 42,
+            "priceperkg" : 56
+        }
+    ]
+}
