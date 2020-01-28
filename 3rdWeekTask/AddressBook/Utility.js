@@ -1,8 +1,7 @@
-
 class Utility {
     validName(n) {
         try {
-            let name = /^[a-zA-Z]+(?:-[a-zA-Z]+)*$/;
+            let name = /^[a-zA-Z]+$/;
             if (n.match(name)) {
                 return true;
             }
@@ -28,6 +27,20 @@ class Utility {
         }
     }
 
+    validZipCode(zp) {
+        try {
+            let zipcode = /^[1-9][0-9]{6}$/;
+            if (zp.match(mobilenum)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
     fileRead(filePath) {
         try {
             let fs = require('fs');
@@ -43,5 +56,19 @@ class Utility {
         }
     }
 
+
+    fileWrite(filePath,data) {
+        try {
+            let fs = require('fs');
+            let obj = fs.readFileSync(filePath,data)
+                if (obj) { 
+                    return obj
+                 }
+                else {
+                    return false;
+                }
+        } catch (error) {
+            return error;
+        }
+    }
 }
-module.exports = new Utility();

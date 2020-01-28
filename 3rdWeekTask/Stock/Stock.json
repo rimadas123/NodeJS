@@ -1,0 +1,25 @@
+{
+    "stocks": [
+        {
+            "name" : "ASIANPAINT",
+            "NumberOfShares" : 4,
+            "SharePrice" : 200
+        },
+        {
+            "name" : "JSWSTEEL",
+            "NumberOfShares" : 10,
+            "SharePrice" : 700
+        },
+        {
+            "name" : "BAJFINANCE",
+            "NumberOfShares" : 40,
+            "SharePrice" : 2000
+        },
+        {
+            "name" : "HEROMOTOCO",
+            "NumberOfShares" : 70,
+            "SharePrice" : 8000
+        }
+
+    ]
+}
