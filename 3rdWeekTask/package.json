@@ -1,0 +1,25 @@
+{
+  "name": "nodejsprogramming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rimadas123/NodeJS.git"
+  },
+  "author": "Rima Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rimadas123/NodeJS/issues"
+  },
+  "homepage": "https://github.com/rimadas123/NodeJS#readme",
+  "dependencies": {
+    "async": "^3.1.0",
+    "asyncawait": "^3.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0"
+  }
+}

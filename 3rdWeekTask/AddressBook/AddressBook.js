@@ -10,43 +10,13 @@
 */
 
 class Address {
-    constructor(city,state,zip){
+    constructor(address,city,state,zip){
+        this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
     }
-    getDetails() {
-         return (`${this.city} ${this.state} ${this.zip}`);
-    }
-}
 
-class Person extends Address {
-    constructor(firstname,lastname,mobilenum,address,city,state,zip){
-        super(city,state,zip);
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.mobilenum = mobilenum;
-        this.address = address;
-    }
-
-    set FirstName(firstname) {
-        this.firstname = firstname;
-    }
-    get FirstName(){
-        return this.firstname;
-    }
-    set LastName(lastname) {
-        this.lastname = lastname;
-    }
-    get LastName(){
-        return this.lastname;
-    }
-    set MobileNum(mobilenum) {
-        this.mobilenum = mobilenum;
-    }
-    get MobileNum(){
-        return this.MobileNum;
-    }
     set Address(address){
         this.address = address;
     }
@@ -71,6 +41,43 @@ class Person extends Address {
     get ZipCode(){
         return this.zip;
     }
+
+    getDetails() {
+         return (`${this.address} ${this.city} ${this.state} ${this.zip}`);
+    }
+}
+
+class Person extends Address {
+    constructor(firstname,lastname,mobilenum,address,city,state,zip){
+        super(address,city,state,zip);
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.mobilenum = mobilenum;    
+    }
+
+    set FirstName(firstname) {
+        this.firstname = firstname;
+    }
+    get FirstName(){
+        return this.firstname;
+    }
+    set LastName(lastname) {
+        this.lastname = lastname;
+    }
+    get LastName(){
+        return this.lastname;
+    }
+    set MobileNum(mobilenum) {
+        this.mobilenum = mobilenum;
+    }
+    get MobileNum(){
+        return this.MobileNum;
+    }
+
+    getDetails() {
+        return (`${this.firstname} ${this.lastname} ${this.mobilenum} ${super.getDetails()}`)
+    }
+    
 }
 
 

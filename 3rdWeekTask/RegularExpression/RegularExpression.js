@@ -62,3 +62,5 @@ let format = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYe
 
 obj.replaceData(firstname,fullName,mobileNumber,format);
 
+module.exports = new Regrex();
+
