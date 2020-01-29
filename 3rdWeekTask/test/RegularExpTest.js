@@ -8,9 +8,16 @@
 */
 
 const assert = require('chai').assert;
-let read = require('../BinarySearchTree');
-let regrex = require('../RegularExpression/RegularExpression');
+let regrex = require('../RegularExpression/Utility');
+let obj = new regrex.Utility();
 
 describe("Regular Expression Test", function () {
-   
+   it("strings are equal",function () {
+       let validName = obj.validFullName('rima das');
+       assert.equal(validName,true);
+   })
+   it("check if it is a string",function () {
+    let validName = obj.validFullName('rima das');
+    assert.isString(validName,true);
+})
 })

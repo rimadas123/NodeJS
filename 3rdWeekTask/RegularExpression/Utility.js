@@ -2,8 +2,21 @@
 class Utility {
     validName(n) {
         try {
-            let name = /^[a-zA-Z]+(?:-[a-zA-Z]+)*$/;
+            let name = /^[a-zA-Z]+$/;
             if (n.match(name)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+    validFullName(fn) {
+        try {
+            let name = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            if (fn.match(name)) {
                 return true;
             }
             else {
@@ -44,4 +57,6 @@ class Utility {
     }
 
 }
-module.exports = new Utility();
+module.exports = { 
+    Utility 
+}

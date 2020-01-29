@@ -158,8 +158,7 @@ class Utility {
 
     /**
     * @description this method is used to take input for last name
-    * @param string, numbers
-    * @returns string ,numbers
+    * @returns string 
     */
 
     inputLastName(){
@@ -176,8 +175,7 @@ class Utility {
 
     /**
     * @description this method is used to take input for mobile number
-    * @param string, numbers
-    * @returns string ,numbers
+    * @returns number
     */
 
     inputMobileNum(){
@@ -194,7 +192,7 @@ class Utility {
 
     /**
     * @description this method is used to take input for address
-    * @returns string ,numbers
+    * @returns string ,number
     */
 
     inputAddress(){
@@ -228,8 +226,7 @@ class Utility {
 
     /**
     * @description this method is used to take input for state
-    * @param string, numbers
-    * @returns string ,numbers
+    * @returns string 
     */
 
     inputState(){
@@ -297,8 +294,6 @@ class Utility {
         } catch (error) {
             return error;
         }
-        
-     
     }
 
     editPerson(jsonObject) {
