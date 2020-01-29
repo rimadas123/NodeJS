@@ -6,39 +6,39 @@
 *
 * @author: Rima Das
 * @version: 1.0
-* @date: 28/1/2020
+* @date: 29/1/2020
 */
 
 class Address {
-    constructor(address,city,state,zip){
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+    constructor(){
+        this.address;
+        this.city;
+        this.state;
+        this.zip;
     }
 
-    set Address(address){
+    setAddress(address){
         this.address = address;
     }
-    get Address(){
+    getAddress(){
         return this.address;
     }
-    set City(city){
+    setCity(city){
         this.city = city;
     }
-    get City(){
+    getCity(){
         return this.city;
     }
-    set State(state){
+    setState(state){
         this.state = state;
     }
-    get State(){
+    getState(){
         return this.State;
     }
-    set ZipCode(zipcode){
+    setZipCode(zipcode){
         this.zip = zipcode;
     }
-    get ZipCode(){
+    getZipCode(){
         return this.zip;
     }
 
@@ -50,27 +50,27 @@ class Address {
 class Person extends Address {
     constructor(firstname,lastname,mobilenum,address,city,state,zip){
         super(address,city,state,zip);
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.mobilenum = mobilenum;    
+        this.firstname;
+        this.lastname;
+        this.mobilenum;    
     }
 
-    set FirstName(firstname) {
+    setFirstName(firstname) {
         this.firstname = firstname;
     }
-    get FirstName(){
+    getFirstName(){
         return this.firstname;
     }
-    set LastName(lastname) {
+    setLastName(lastname) {
         this.lastname = lastname;
     }
-    get LastName(){
+    getLastName(){
         return this.lastname;
     }
-    set MobileNum(mobilenum) {
+    setMobileNum(mobilenum) {
         this.mobilenum = mobilenum;
     }
-    get MobileNum(){
+    getMobileNum(){
         return this.MobileNum;
     }
 
@@ -80,8 +80,6 @@ class Person extends Address {
     
 }
 
-
-let obj = new Person("Rima","das",89283237834,"govandi","mumbai","mh",212123);
-console.log(obj.getDetails());
-
-module.exports = new Person();
+module.exports = {
+    Person
+ }

@@ -1,13 +1,1 @@
-{
-    "Book": [
-        {
-            "firstname" : "",
-            "lastname" : "",
-            "mobileNum" : "",
-            "address" : "",
-            "city" : "",
-            "state" : "",
-            "zip" : ""
-        }
-    ]
-}
+[{"firstname":"ashish","lastname":"bhati","mobilenum":"8779876654","address":"kp","city":"pune","state":"mh","zip":"412241"},{"firstname":"deepa","lastname":"jain","mobilenum":"7788822823","address":"andheri","city":"mumbai","state":"mh","zip":"313232"},{"firstname":"hjkjdhfj","lastname":"fnjdrnje","mobilenum":"9876543210","address":"djehd","city":"dfnfne","state":"fnnf","zip":"411242"},{"firstname":"leena","lastname":"roul","mobilenum":"8978776690","address":"vashi","city":"mumbai","state":"mh","zip":"123232"},{"firstname":"minesh","lastname":"mane","mobilenum":"9283777484","address":"kopar kharane","city":"mumbai","state":"mh","zip":"525353"}]
