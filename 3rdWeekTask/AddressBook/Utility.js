@@ -103,7 +103,7 @@ class Utility {
 
     fileRead(filePath) {
         try {           
-            let obj = fs.readFileSync(filePath, 'utf-8')
+            let obj = fs.readFileSync(filePath, 'utf-8');
                 if (obj) { 
                    let res = JSON.parse(obj);
                     return res;
@@ -259,8 +259,9 @@ class Utility {
     }
 
     /**
-    * @description this method is used to take input for all the properties and write it to the json file
-    * @returns string ,numbers
+    * @description this method is used to add person details and write to the json file
+    * @params json object
+    * @returns 
     */
 
     addPerson(jsonobject) { 
@@ -295,6 +296,12 @@ class Utility {
             return error;
         }
     }
+
+    /**
+    * @description this method is used to edit person details and save into the json file
+    * @params json object
+    * @returns 
+    */
 
     editPerson(jsonObject) {
         try {
@@ -348,6 +355,12 @@ class Utility {
         }
     }
 
+    /**
+    * @description this method is used to delete person details / record
+    * @params json object
+    * @returns 
+    */
+
     deletePerson(jsonObject) {
         try {
             let value = -1;
@@ -380,6 +393,12 @@ class Utility {
         }
     }
 
+    /**
+    * @description this method is used to sort the details according to the firstname
+    * @params json object
+    * @returns 
+    */
+
     sortByName(jsonObject) {
         try {
             for(let i = 0 ; i < jsonObject.length ; i++){
@@ -400,6 +419,12 @@ class Utility {
             return error;
         }
     }
+
+    /**
+    * @description this method is used to sort the details according to the zipcode
+    * @params json object
+    * @returns 
+    */
 
     sortByZip(jsonObject) {
         try {
@@ -423,6 +448,12 @@ class Utility {
         }
     }
 
+    /**
+    * @description this method is used to display the address book
+    * @params json object
+    * @returns 
+    */
+
     display(jsonObject) {
         try {
             console.log(`******************Address Book***************************`);
@@ -437,6 +468,12 @@ class Utility {
         }
         
     }
+
+    /**
+    * @description this method is used to save the data into the json file
+    * @params json object
+    * @returns 
+    */
 
     save(data) {
         let saved = this.fileWrite('AddressBook.json',data);

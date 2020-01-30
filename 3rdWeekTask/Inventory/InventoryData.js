@@ -16,6 +16,12 @@ class Inventory{
         this.words = JSON.parse(this.data)
     
     }
+
+    /**
+    * @description this method is used to print the values from the json file
+    * @returns string 
+    */
+
     print() {
         let riceValue = this.words.rice;
         let pulseValue = this.words.pulses;

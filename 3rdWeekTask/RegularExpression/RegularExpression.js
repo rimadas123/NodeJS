@@ -9,15 +9,11 @@
 * @version: 1.0
 * @date: 27/1/2020
 */
-let fs = require('fs');
-let read = require('readline-sync');
-let validInput = require('./Utility');
+const util = require('./Utility');
 
 class Regrex{
     constructor(){
-       this.file = fs.readFileSync('Regrex.json','UTF-8');
-       this.parsing = JSON.parse(this.file);
-       console.log(this.parsing);
+       this.file = util.fileRead('Regrex.json');
     }
 
     /**
@@ -26,7 +22,8 @@ class Regrex{
     * @returns string ,numbers
     */
     replaceData(name,fullname,mobilenum,date) {
-        let data = this.parsing.str;
+        let data = this.file.str;
+        console.log(data);
         data = data.replace('<<name>>',name);
          data = data.replace('<<full name>>',fullname);
          data = data.replace('xxxxxxxxxx',mobilenum);
@@ -38,25 +35,9 @@ class Regrex{
 
 // create object of the class Regrex
 let obj = new Regrex();
-
-do{
-    var firstname = read.question("Enter your first name: ");
-
-}while(validInput.validName(firstname) == false)
-
-
-do{ 
-   
-    var fullName = read.question("Enter your first name and last name: ");
-
-}while(validInput.validName(fullName) == false)
-
-do{
-    var mobileNumber = read.question("Enter mobile number: ");
-
-}while(validInput.validMobileNum(mobileNumber) == false)
-
-
+let firstname = util.inputFirstName();
+let fullName = util.inputFullName();
+let mobileNumber = util.inputMobileNum();
 let date = new Date();
 let format = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
