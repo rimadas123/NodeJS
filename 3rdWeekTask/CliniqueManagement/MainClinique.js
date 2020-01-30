@@ -13,7 +13,8 @@ const util = require('./Utility');
 
 class Main{
     constructor() {
-
+       this.patientfile = util.fileRead('Patient.json');
+       this.doctorfile = util.fileRead('Doctor.json');
     }
 
     mainMenu() {
@@ -21,16 +22,16 @@ class Main{
         
         switch(menu) {
             case 1: 
-                   util.addAppointment();
+                   util.addAppointment(this.patientfile);
                    return this.mainMenu();
             case 2:
                    util.addDoctor();
-                   return this.mainMenu();
+                   return this.mainMenu(this.doctorfile);
             case 3:
-                   util.searchDoctor();
+                   util.searchDoctor(this.doctorfile);
                    return this.mainMenu();
             case 4:
-                    util.searchPatient();
+                    util.searchPatient(this.patientfile);
                     return this.mainMenu();       
             case 5:
                    util.save();

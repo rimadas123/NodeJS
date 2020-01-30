@@ -148,17 +148,61 @@ class Utility{
     * @returns number
     */
 
-   autoGenerateId(){
-        try {
-            do{
-                var id = Math.random().toString(4).substr(2, 2);
-            }while(this.validAge(id) == false)
-            return id;
+    /**
+    * @description this method is used to read entire contents of the file
+    * @param filePath
+    * @returns bool
+    */
 
+   fileRead(filePath) {
+    try {           
+        let obj = fs.readFileSync(filePath, 'utf-8');
+            if (obj) { 
+               let res = JSON.parse(obj);
+                return res;
+             }
+            else {
+                return false;
+            }
+    } catch (error) {
+        return error;
+    }
+}
+
+    /**
+    * @description this method is to writes data to a file
+    * @param filePath
+    * @returns bool
+    */
+
+    fileWrite(filePath,data) {
+        try {
+            
+            let stringify = JSON.stringify(data);     
+            let obj = fs.writeFileSync(filePath,stringify);
+
+                if (obj) { 
+                    console.log(obj);
+                }
+                else {
+                    return false;
+                }
         } catch (error) {
             return error;
         }
     }
+
+    autoGenerateId(){
+            try {
+                do{
+                    var id = Math.random().toString(4).substr(2, 2);
+                }while(this.validAge(id) == false)
+                return id;
+
+            } catch (error) {
+                return error;
+            }
+        }
 
     addAppointment(jsonobject) { 
         try {
