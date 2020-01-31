@@ -22,7 +22,7 @@ class Main{
         
         switch(menu) {
             case 1: 
-                   util.addAppointment(this.patientfile);
+                   util.Appointment(this.patientfile);
                    return this.mainMenu();
             case 2:
                    util.listDoctor(this.doctorfile);

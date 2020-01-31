@@ -255,7 +255,110 @@ class Utility{
             }
     }
 
+    Appointment(jsonobject) {
+        try {
+            var date = new Date();
+            this.addAppointment(jsonobject);
+
+            do{
+                var appointment = read.question("Do you want to get appointment? yes or no");
+                if(appointment !="yes" && appointment != "no")
+                console.log("Invalid input");
+            }while(appointment != "yes" && appointment != "no");
+
+            if(appointment =="yes") {
+                this.listDoctor(jsonobject);
+
+                do{
+                    var index = this.searchDoctor(jsonobject);
+                }while (index == undefined)
+
+                let appoint = jsonobject[index].firstName;
+                console.log(appoint);
+            }
+
+        } catch (error) {
+            return error;
+        }
+    }
     
+    searchDoctorByName(jsonobject){
+        try {
+            let value = -1;
+            let name = this.inputFirstName;
+
+            for (let i = 0; i < jsonobject.length; i++) {
+                if(name == jsonobject[i].firstName){
+                    value = i;
+                }
+            }
+
+            if(value === -1) {
+                console.log("record not found");
+                return;
+            }
+
+        } catch (error) {
+            return error;
+        }
+    }
+
+    searchDoctorByID(jsonobject){
+        try {
+            let value = -1;
+            let validID = /^[0-9]+$/;
+
+            do{
+                var id = read.questionInt('Enter Doctor ID: ');
+            }while(validID.match(id) == false)
+
+            for (let i = 0; i < jsonobject.length; i++) {
+                if(id == jsonobject[i].id) {
+                    value = i;
+                }
+            }
+
+            if(value === -1) {
+                console.log("record not found");
+                return;                
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
+    searchDoctorBySpecialization(jsonobject){
+        try {
+            let value = -1;
+
+            do{
+                var spec = read.question("Enter Specialization: ");
+            }while(this.validName(spec) == false)
+
+            for (let i = 0; i < jsonobject.length; i++) {
+                if(spec == jsonobject[i].specialization){
+                    value = i;
+                }
+            }
+
+            if(value === -1){
+                console.log("record not found");
+            }
+    
+        } catch (error) {
+            return error;
+        }
+    }    
+
+    searchDoctorByAvailability(jsonobject){
+        try {
+            let value = -1;
+
+        } catch (error) {
+            return error;
+        }
+    }
+
     searchDoctor(jsonobject) {
         try {
             this.listDoctor(jsonobject);
@@ -263,7 +366,11 @@ class Utility{
             
             switch(ask){
                 case 1:
-                         
+                        this.searchDoctorByName(jsonobject);
+                case 2:
+                        this.searchDoctorByID(jsonobject);
+                case 3:
+                        this.searchDoctorBySpecialization(jsonobject);
             }
 
         } catch (error) {
