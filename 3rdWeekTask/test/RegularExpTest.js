@@ -8,7 +8,7 @@
 */
 
 const assert = require('chai').assert;
-let regrex = require('../RegularExpression/Utility');
+let regrex = require('../RegularExpression/Utility').default;
 let obj = new regrex.Utility();
 
 describe("Regular Expression Test for name", function () {
@@ -27,7 +27,7 @@ describe("Regular Expression Test for name", function () {
         let validName = obj.validName('rima');      
         assert.isNotString(validName,true);
     })
-})
+});
 
 describe("Regular Expression Test for mobile number", function () {
 
@@ -45,4 +45,4 @@ describe("Regular Expression Test for mobile number", function () {
          let validMobileNum = obj.validMobileNum('8998888238');      
          assert.isNotNumber(validMobileNum,true);
      })
- })
+ });

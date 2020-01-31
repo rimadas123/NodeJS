@@ -77,8 +77,8 @@ class Utility {
 
     /**
     * @description this method is used to read file
-    * @param string, numbers
-    * @returns string ,numbers
+    * @param filePath
+    * @returns bool
     */
 
     fileRead(filePath) {
@@ -104,7 +104,7 @@ class Utility {
     inputFirstName(){
         try {
             do{
-                var fn = read.question("Enter your first name(only alphabets): ");
+               fn = read.question("Enter your first name(only alphabets): ");  
             }while(this.validName(fn) == false)
             return fn;
 
@@ -120,7 +120,7 @@ class Utility {
 
     inputFullName(){
         try {
-            do{
+            do{  
                 var fl = read.question("Enter your first name and last name(only alphabets): ");
             }while(this.validFullName(fl) == false)
             return fl;
@@ -148,4 +148,4 @@ class Utility {
     }
 
 }
-module.exports ={ Utility }
+module.exports = new Utility();

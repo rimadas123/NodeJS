@@ -12,7 +12,11 @@
 const util = require('./Utility');
 
 class DistributeCards {
-    
+ 
+    /**
+    * @description this method is used for distributing the cards among the four players
+    * @returns array
+    */
     start() {
         let cards = util.shuffle();
         let play = 0;

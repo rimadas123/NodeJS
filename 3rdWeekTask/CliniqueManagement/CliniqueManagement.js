@@ -10,24 +10,24 @@
 
 class CommmonDetails{
     constructor(){
-        this.firstname;
-        this.lastname;
+        this.firstName;
+        this.lastName;
         this.id;
     }
-    setFirstName(firstname) {
-        this.firstname = firstname;
+    setFirstName(firstName) {
+        this.firstName = firstName;
     }
 
     getFirstName() {
-        return this.firstname
+        return this.firstName
     }
 
-    setLastName(lastname) {
-        this.lastname = lastname;
+    setLastName(lastName) {
+        this.lastNfiboame = lastName;
     }
 
     getLastName() {
-        return this.lastname;
+        return this.lastName;
     }
 
     setId(id) {
@@ -41,7 +41,7 @@ class CommmonDetails{
 
 class Doctor extends CommmonDetails{
     constructor(firstname,lastname,id){
-        super(firstname,lastname,id);
+        super(firstName,lastName,id);
         this.specialization;
         this.availiability;
     }
@@ -64,18 +64,18 @@ class Doctor extends CommmonDetails{
 }
 
 class Patient extends CommmonDetails {
-    constructor(firstname,lastname,id){
-        super(firstname,lastname,id);
-        this.mobilenum;
+    constructor(firstName,lastName,id){
+        super(firstName,lastName,id);
+        this.mobilenumber;
         this.age;
     }
 
-    setMobileNumber(mobilenum) {
-        this.mobilenum = mobilenum;
+    setMobileNumber(mobilenumber) {
+        this.mobilenumber = mobilenumber;
     }
 
     getMobileNumber() {
-        return this.mobilenum;
+        return this.mobilenumber;
     }
 
     setAge(age) {

@@ -11,6 +11,7 @@
 */
 const util = require('./Utility');
 
+
 class Regrex{
     constructor(){
        this.file = util.fileRead('Regrex.json');

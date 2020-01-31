@@ -13,17 +13,16 @@ let file = require('../RegularExpression/Utility');
 class Stock{
     constructor() {
        this.data = file.fileRead('Stock.json');
-       this.read = JSON.parse(this.data);
     }
 
-    readValue() {
-        let num = this.read.stocks;
+    readValue() {        
+        let num = this.data.stocks;
         let totalShares = 0;
         let totalPrice = 0;
         for(let key in num) {
             if(num.hasOwnProperty(key)) {
                 var val = num[key];
-                console.log(`Shares names: ${val.name}, Number Of Shares: ${val.NumberOfShares}, Share Price Of each Share: ${val.SharePrice}`);
+                console.log(`Shares names: ${val.name} | Number Of Shares: ${val.NumberOfShares} | Share Price Of each Share: ${val.SharePrice}`);
                 totalShares += val.NumberOfShares;
                 totalPrice += val.SharePrice;
             }      

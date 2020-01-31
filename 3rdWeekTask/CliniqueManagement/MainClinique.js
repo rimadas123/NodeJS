@@ -18,28 +18,31 @@ class Main{
     }
 
     mainMenu() {
-        let menu = read.questionInt(`Enter 1 to add details for patient \n Enter 2 to add details for doctor \n Enter 3 to search doctor availability \n Enter 4 to search person \n Enter 5 to save \n Enter 6 to display \n Enter 7 to exit`)
+        let menu = read.questionInt(`Enter 1 to to add details to take appointment \n Enter 2 to list out the doctors \n Enter 3 to list out the patients \n Enter 4 to search doctor \n Enter 5 to search patient \n Enter 6 to save \n Enter 7 to delete \n Enter 8 to exit`)
         
         switch(menu) {
             case 1: 
                    util.addAppointment(this.patientfile);
                    return this.mainMenu();
             case 2:
-                   util.addDoctor();
-                   return this.mainMenu(this.doctorfile);
+                   util.listDoctor(this.doctorfile);
+                   return this.mainMenu();
             case 3:
-                   util.searchDoctor(this.doctorfile);
+                   util.listPatient(this.patientfile);
                    return this.mainMenu();
             case 4:
+                   util.searchDoctor(this.doctorfile);
+                   return this.mainMenu();
+            case 5:
                     util.searchPatient(this.patientfile);
                     return this.mainMenu();       
-            case 5:
-                   util.save();
-                   return this.mainMenu();
-            case 6:
-                   util.display();
+            case 6:fibofibofibo
+                   util.save(this.doctorfile,this.patientfile);
                    return this.mainMenu();
             case 7:
+                   util.delete(this.doctorfile,this.patientfile);
+                   return this.mainMenu();
+            case 8:
                    console.log("Exit");
                    return 0;
             default:

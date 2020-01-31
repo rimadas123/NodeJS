@@ -182,7 +182,7 @@ class Utility {
         try {
             do{
                 var mn = read.question("Enter your mobile number(only 10 digits): ");
-            }while(this.validMobileNum(mn) == false)
+            }while(this.validMobileNum(mn) == false)            
             return mn;
 
         } catch (error) {

@@ -1,7 +1,23 @@
 [{
-    "firstName" : "",
-    "lastName" : "",
-    "id" : "",
-    "speciliazation" : "",
-    "availiability" : ""
-}]
+    "firstName" : "Rahul",
+    "lastName" : "Jain",
+    "id" : "101",
+    "specialization" : "eyespecialist",
+    "availiability" : "am"
+},
+{
+    "firstName" : "Ashish",
+    "lastName" : "Sharma",
+    "id" : "102",
+    "specialization" : "gynacologist",
+    "availiability" : "pm"
+},
+{
+    "firstName" : "Priyanka",
+    "lastName" : "Patel",
+    "id" : "105",
+    "specialization" : "physician",
+    "availiability" : "both"
+}
+
+]

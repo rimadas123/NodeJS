@@ -10,7 +10,7 @@
 const read = require('readline-sync');
 const fs = require('fs');
 const clinique = require('./CliniqueManagement');
-const cliniqueObject1 = new clinique.Doctor;
+// const cliniqueObject1 = new clinique.Doctor;
 const cliniqueObject2 = new clinique.Patient;
 
 class Utility{
@@ -44,7 +44,7 @@ class Utility{
    validMobileNum(mn) {
         try {
             let mobilenum = /^[6-9]\d{9}$/;
-            if (mn.match(mobilenum)) {
+            if (mn.match(mobilenum)) {               
                 return true;
             }
             else {
@@ -117,8 +117,9 @@ class Utility{
    inputMobileNum(){
         try {
             do{
-                var mn = read.question("Enter your mobile number(only 10 digits): ");
-            }while(this.validMobileNum(mn) == false)
+                var mn = read.question("Enter your mobile number(only 10 digits): ");    
+                            
+            }while(this.validMobileNum(mn) == false)            
             return mn;
 
         } catch (error) {
@@ -134,7 +135,7 @@ class Utility{
    inputAge(){
         try {
             do{
-                var ag = read.question("Enter your mobile number(only 10 digits): ");
+                var ag = read.question("Enter your Age: ");
             }while(this.validAge(ag) == false)
             return ag;
 
@@ -144,34 +145,29 @@ class Utility{
     }
 
     /**
-    * @description this method is used to take input for number
-    * @returns number
-    */
-
-    /**
     * @description this method is used to read entire contents of the file
-    * @param filePath
+    * @param 
     * @returns bool
     */
 
    fileRead(filePath) {
-    try {           
-        let obj = fs.readFileSync(filePath, 'utf-8');
-            if (obj) { 
-               let res = JSON.parse(obj);
-                return res;
-             }
-            else {
-                return false;
-            }
-    } catch (error) {
-        return error;
+        try {           
+            let obj = fs.readFileSync(filePath, 'utf-8');
+                if (obj) { 
+                let res = JSON.parse(obj);
+                    return res;
+                }
+                else {
+                    return false;
+                }
+        } catch (error) {
+            return error;
+        }
     }
-}
 
     /**
     * @description this method is to writes data to a file
-    * @param filePath
+    * @param 
     * @returns bool
     */
 
@@ -193,16 +189,16 @@ class Utility{
     }
 
     autoGenerateId(){
-            try {
-                do{
-                    var id = Math.random().toString(4).substr(2, 2);
-                }while(this.validAge(id) == false)
-                return id;
+        try {
+            do{
+                var id = Math.random().toString(4).substr(2, 2);
+            }while(id == false)
+            return id;
 
-            } catch (error) {
-                return error;
-            }
+        } catch (error) {
+            return error;
         }
+    }
 
     addAppointment(jsonobject) { 
         try {
@@ -224,38 +220,75 @@ class Utility{
             cliniqueObject2.setAge(age);
             
             storeAddress.push(cliniqueObject2)
-            this.fileWrite('AddressBook.json',storeAddress);
+            this.fileWrite('Patient.json',storeAddress);
 
         } catch (error) {
             return error;
         }
     }
 
-    addDoctor(jsonobject) { 
+    listDoctor(jsonobject) { 
         try {
-            let storeAddress = jsonobject;
+            console.log("**************Doctor list**************");
+            for(let key in jsonobject){
+                if(jsonobject.hasOwnProperty(key)){
+                    let val = jsonobject[key];
+                    console.log(`${key} Doctor's name: ${val.firstName} ${val.lastName} | ID: ${val.id} | Specialization: ${val.specialization} | Availiability: ${val.availiability}`);
+                }
+            }
+        } catch (error) {
+            return error;
+        }
+    }
 
-            let fname = this.inputFirstName();
-            cliniqueObject1.setFirstName(fname);
+    listPatient(jsonobject) { 
+            try {
+                console.log("**************Patient list**************");
+                for(let key in jsonobject){
+                    if(jsonobject.hasOwnProperty(key)){
+                        let val = jsonobject[key];
+                        console.log(`${key} Patient's name: ${val.firstName} ${val.lastName} | ID: ${val.id} | Mobile Number: ${val.mobilenumber} | Age: ${val.age}`);
+                    }
+                }                                
+            } catch (error) {
+                return error;
+            }
+    }
 
-            let lname = this.inputLastName();
-            cliniqueObject1.setLastName(lname);
-
-            let id = this.autoGenerateId();
-            cliniqueObject1.setId(id);
-
-            let spec = this.inputMobileNum();
-            cliniqueObject2.setMobileNumber(mob);
-
-            let avail = this.inputAge();
-            cliniqueObject2.setAge(age);
+    
+    searchDoctor(jsonobject) {
+        try {
+            this.listDoctor(jsonobject);
+            let ask = read.questionInt(`Enter 1 to search doctor by id \n Enter 2 to search doctor by name \n Enter 3 to search doctor by specialization \n Enter 4 to search doctor by timing availiability`)
             
-            storeAddress.push(cliniqueObject2)
-            this.fileWrite('AddressBook.json',storeAddress);
+            switch(ask){
+                case 1:
+                         
+            }
 
         } catch (error) {
             return error;
         }
+    }
+
+    /**
+    * @description this method is used to save the data into the json file
+    * @params 
+    * @returns 
+    */
+
+    savePatientDetails(data) {
+        let saved = this.fileWrite('Patient.json',data);
+    }
+
+    /**
+    * @description this method is used to save the data into the json file
+    * @params 
+    * @returns 
+    */
+
+    saveDoctorDetails(data) {
+        let saved = this.fileWrite('Doctor.json',data);
     }
 
 }
