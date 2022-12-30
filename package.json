@@ -20,7 +20,7 @@
     "async": "^3.1.0",
     "asyncawait": "^3.0.0",
     "chai": "^4.2.0",
-    "mocha": "^7.0.0",
+    "mocha": "^10.2.0",
     "rxjs-observable": "0.0.7"
   }
 }
